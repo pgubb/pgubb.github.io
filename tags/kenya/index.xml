@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kenya on Hi, I&#39;m Paul</title>
-    <link>/tags/kenya/</link>
+    <link>https://pgubb.github.io/tags/kenya/</link>
     <description>Recent content in Kenya on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/kenya/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/tags/kenya/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Exploring the links between finance, technology and growth in Kenya</title>
-      <link>/publication/finance-technology-growth/</link>
+      <link>https://pgubb.github.io/publication/finance-technology-growth/</link>
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/publication/finance-technology-growth/</guid>
+      <guid>https://pgubb.github.io/publication/finance-technology-growth/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cost of Banking 2018</title>
-      <link>/publication/cost-of-banking/</link>
+      <link>https://pgubb.github.io/publication/cost-of-banking/</link>
       <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/publication/cost-of-banking/</guid>
+      <guid>https://pgubb.github.io/publication/cost-of-banking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>How is digital credit changing the lives of Kenyans?</title>
-      <link>/publication/digital-credit-mshwariimpacts/</link>
+      <link>https://pgubb.github.io/publication/digital-credit-mshwariimpacts/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/publication/digital-credit-mshwariimpacts/</guid>
+      <guid>https://pgubb.github.io/publication/digital-credit-mshwariimpacts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Digital credit in Kenya: evidence from demand-side surveys</title>
-      <link>/publication/digital-credit-surveyevidence/</link>
+      <link>https://pgubb.github.io/publication/digital-credit-surveyevidence/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/publication/digital-credit-surveyevidence/</guid>
+      <guid>https://pgubb.github.io/publication/digital-credit-surveyevidence/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kenya Economic Update 8, Special Focus: Poverty</title>
-      <link>/publication/keu-8/</link>
+      <link>https://pgubb.github.io/publication/keu-8/</link>
       <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>/publication/keu-8/</guid>
+      <guid>https://pgubb.github.io/publication/keu-8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kenya Economic Update 7, Special Focus: Jobs</title>
-      <link>/publication/keu-7/</link>
+      <link>https://pgubb.github.io/publication/keu-7/</link>
       <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>/publication/keu-7/</guid>
+      <guid>https://pgubb.github.io/publication/keu-7/</guid>
       <description></description>
     </item>
     

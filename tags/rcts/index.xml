@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>RCTS on Hi, I&#39;m Paul</title>
-    <link>/tags/rcts/</link>
-    <description>Recent content in RCTS on Hi, I&#39;m Paul</description>
+    <title>RCTs on Hi, I&#39;m Paul</title>
+    <link>https://pgubb.github.io/tags/rcts/</link>
+    <description>Recent content in RCTs on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Thu, 15 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/rcts/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/tags/rcts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Design That Can Be Understood by Almost Everyone: the Case of Ikea and Seed Insurance</title>
-      <link>/post/fsdk-design-cropinsurance/</link>
+      <link>https://pgubb.github.io/post/fsdk-design-cropinsurance/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/fsdk-design-cropinsurance/</guid>
+      <guid>https://pgubb.github.io/post/fsdk-design-cropinsurance/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“…fintech innovations need to be more inclusive, easier to use, and designers should work harder to provide greater consumer protection and empowerment.”&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -63,10 +63,10 @@
     
     <item>
       <title>The End of Magic and the Beginning of Wisdom</title>
-      <link>/post/fsdk-endofmagic/</link>
+      <link>https://pgubb.github.io/post/fsdk-endofmagic/</link>
       <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/post/fsdk-endofmagic/</guid>
+      <guid>https://pgubb.github.io/post/fsdk-endofmagic/</guid>
       <description>&lt;p&gt;As a university economics student, I was obsessed with two topics: development and econometrics. The former, because the field enabled me to explore questions about the patterns of wealth and poverty that I saw in Chile and Mexico growing up and struggled to find answers to. The latter, because the fancy statistical models that were taught in econometrics courses seemed powerful: when combined with good data (a big if!) it felt as if those models could reveal the secrets of development and the knowledge to make the world better.&lt;/p&gt;
 &lt;p&gt;In the years after I graduated university, development economics underwent a methodological “revolution” that started with a loss in confidence in the ability of econometric models trained on large-scale observational data to tease out truth. The leaders of this revolution were inspired by the “long and wretched” history of medicine (Philip Tetlock succinctly describes this history in a chapter called “Illusions of Knowledge” in his book Superforecasting), where useless and often harmful interventions (like bloodletting) persisted over centuries and physicians debated their theories and practices “like blind men arguing over the colors of the rainbow” – as the historian Ira Rutkow observed. Medical decision-making was based mostly on intuition, informed at best by flawed observations and untroubled by doubt. Physicians were quick to make up their minds about interventions and too slow to change them. Not until the mid-20th century did the idea of randomized experiments, careful measurement and statistical power take hold in medicine.&lt;/p&gt;
 &lt;p&gt;While it may be harsh to compare the state of development economics in the early 21st century with the state of medicine in the 1st century, it was on the grounds of providing a path out of ignorance that RCTs have been adopted widely in the past 10 years as a favored way to establish evidence about “what works” in development. But can RCTs do for economics what they did for medicine? Are they any better than other tools in helping us learn about how societies achieve prosperity?&lt;/p&gt;

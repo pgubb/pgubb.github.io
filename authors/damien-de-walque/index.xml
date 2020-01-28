@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Damien de Walque on Hi, I&#39;m Paul</title>
-    <link>/authors/damien-de-walque/</link>
+    <link>https://pgubb.github.io/authors/damien-de-walque/</link>
     <description>Recent content in Damien de Walque on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Sat, 01 Jan 2011 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/authors/damien-de-walque/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/authors/damien-de-walque/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Maternal and Child Health in Sudan.</title>
-      <link>/publication/maternal-childhealth-sudan/</link>
+      <link>https://pgubb.github.io/publication/maternal-childhealth-sudan/</link>
       <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>/publication/maternal-childhealth-sudan/</guid>
+      <guid>https://pgubb.github.io/publication/maternal-childhealth-sudan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Progress and Challenges for Improving Child &amp; Maternal Health in a Post-conflict Setting: The Case of South Sudan.</title>
-      <link>/publication/maternal-childhealth-southsudan/</link>
+      <link>https://pgubb.github.io/publication/maternal-childhealth-southsudan/</link>
       <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>/publication/maternal-childhealth-southsudan/</guid>
+      <guid>https://pgubb.github.io/publication/maternal-childhealth-southsudan/</guid>
       <description></description>
     </item>
     

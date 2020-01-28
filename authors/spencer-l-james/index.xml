@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spencer L James on Hi, I&#39;m Paul</title>
-    <link>/authors/spencer-l-james/</link>
+    <link>https://pgubb.github.io/authors/spencer-l-james/</link>
     <description>Recent content in Spencer L James on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Mon, 30 Jul 2012 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/authors/spencer-l-james/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/authors/spencer-l-james/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Developing a comprehensive time series of GDP per capita for 210 countries from 1950 to 2015</title>
-      <link>/publication/gdp-estimates/</link>
+      <link>https://pgubb.github.io/publication/gdp-estimates/</link>
       <pubDate>Mon, 30 Jul 2012 00:00:00 +0000</pubDate>
       
-      <guid>/publication/gdp-estimates/</guid>
+      <guid>https://pgubb.github.io/publication/gdp-estimates/</guid>
       <description></description>
     </item>
     

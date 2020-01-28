@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Hi, I&#39;m Paul</title>
-    <link>/categories/</link>
+    <link>https://pgubb.github.io/categories/</link>
     <description>Recent content in Categories on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Wed, 15 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R</title>
-      <link>/categories/r/</link>
+      <link>https://pgubb.github.io/categories/r/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/categories/r/</guid>
+      <guid>https://pgubb.github.io/categories/r/</guid>
       <description></description>
     </item>
     

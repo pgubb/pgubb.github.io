@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Behavioral economics on Hi, I&#39;m Paul</title>
-    <link>/tags/behavioral-economics/</link>
+    <link>https://pgubb.github.io/tags/behavioral-economics/</link>
     <description>Recent content in Behavioral economics on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Thu, 15 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/behavioral-economics/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/tags/behavioral-economics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Design That Can Be Understood by Almost Everyone: the Case of Ikea and Seed Insurance</title>
-      <link>/post/fsdk-design-cropinsurance/</link>
+      <link>https://pgubb.github.io/post/fsdk-design-cropinsurance/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/fsdk-design-cropinsurance/</guid>
+      <guid>https://pgubb.github.io/post/fsdk-design-cropinsurance/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“…fintech innovations need to be more inclusive, easier to use, and designers should work harder to provide greater consumer protection and empowerment.”&lt;/p&gt;
 &lt;/blockquote&gt;

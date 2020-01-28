@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Summary statistics on Hi, I&#39;m Paul</title>
-    <link>/tags/summary-statistics/</link>
+    <link>https://pgubb.github.io/tags/summary-statistics/</link>
     <description>Recent content in Summary statistics on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Wed, 15 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/summary-statistics/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/tags/summary-statistics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Streamlining the analysis of survey data using functional programming in R</title>
-      <link>/post/2020-01-15-r-summarystats/</link>
+      <link>https://pgubb.github.io/post/2020-01-15-r-summarystats/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/2020-01-15-r-summarystats/</guid>
+      <guid>https://pgubb.github.io/post/2020-01-15-r-summarystats/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://pgubb.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;using-functional-programming-to-efficiently-compute-and-structure-summary-statistics-from-survey-data&#34; class=&#34;section level2&#34;&gt;
@@ -951,13 +951,13 @@ All cars
 All cars
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-20.018762
+20.519877
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-18.265494
+19.194936
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-21.772030
+21.844819
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -977,13 +977,13 @@ All cars
 All cars
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-151.422921
+144.172653
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-145.877657
+106.588444
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-156.968186
+181.756863
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1003,13 +1003,13 @@ All cars
 All cars
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-231.640459
+232.651629
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-214.569684
+161.369019
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-248.711234
+303.934239
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1029,13 +1029,13 @@ All cars
 All cars
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.172685
+3.171457
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-2.799507
+2.900692
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.545862
+3.442222
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1055,13 +1055,13 @@ Number of cylinders
 4 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-26.989995
+27.407213
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-20.378503
+19.887306
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-33.601486
+34.927120
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1081,13 +1081,13 @@ Number of cylinders
 6 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-19.700489
+19.893404
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-18.012244
+16.789258
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-21.388735
+22.997549
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1107,13 +1107,13 @@ Number of cylinders
 8 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-15.517195
+15.707861
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-13.102477
+12.496165
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-17.931914
+18.919557
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1133,13 +1133,13 @@ Number of cylinders
 4 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-82.327543
+79.475175
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-59.763813
+52.443331
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-104.891273
+106.507018
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1159,13 +1159,13 @@ Number of cylinders
 6 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-120.928422
+115.139199
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-93.754503
+105.551340
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-148.102341
+124.727058
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1185,13 +1185,13 @@ Number of cylinders
 8 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-210.361549
+206.617943
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-182.210530
+197.385097
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-238.512569
+215.850789
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1211,13 +1211,13 @@ Number of cylinders
 4 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-102.258884
+102.081026
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-51.915169
+64.282096
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-152.602598
+139.879955
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1237,13 +1237,13 @@ Number of cylinders
 6 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-165.251695
+192.974918
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-158.472465
+107.161288
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-172.030925
+278.788549
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1263,13 +1263,13 @@ Number of cylinders
 8 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-345.956336
+349.335315
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-319.560998
+299.363656
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-372.351674
+399.306975
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1289,13 +1289,13 @@ Number of cylinders
 4 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-2.200298
+2.256888
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-1.089149
+1.127330
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.311446
+3.386446
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1315,13 +1315,13 @@ Number of cylinders
 6 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.056134
+3.152953
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-2.691757
+2.916478
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.420511
+3.389429
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1341,13 +1341,13 @@ Number of cylinders
 8 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.869088
+3.860660
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.347285
+3.145283
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-4.390892
+4.576038
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1367,13 +1367,13 @@ Type of transmission
 Automatic transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-16.907983
+17.667195
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-16.675554
+17.534491
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-17.140411
+17.799899
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1393,13 +1393,13 @@ Type of transmission
 Manual transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-24.166265
+25.567401
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-21.049698
+21.238455
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-27.282833
+29.896346
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1419,13 +1419,13 @@ Type of transmission
 Automatic transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-170.860277
+160.298744
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-149.583268
+127.109391
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-192.137287
+193.488097
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1445,13 +1445,13 @@ Type of transmission
 Manual transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-125.507714
+115.639223
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-98.627690
+53.735393
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-152.387738
+177.543054
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1471,13 +1471,13 @@ Type of transmission
 Automatic transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-292.145561
+285.307443
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-229.684615
+211.600040
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-354.606508
+359.014845
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1497,13 +1497,13 @@ Type of transmission
 Manual transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-150.970935
+139.482676
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-86.414742
+38.591627
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-215.527128
+240.373726
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1523,13 +1523,13 @@ Type of transmission
 Automatic transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.758912
+3.647227
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.693275
+3.421634
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-3.824548
+3.872821
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1549,13 +1549,13 @@ Type of transmission
 Manual transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-2.391087
+2.329631
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-1.878357
+1.680587
 &lt;/td&gt;
 &lt;td style=&#34;text-align:right;&#34;&gt;
-2.903817
+2.978674
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1605,7 +1605,7 @@ All cars
 All cars
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-151.4 (145.9 - 157)
+144.2 (106.6 - 181.8)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1616,7 +1616,7 @@ Number of cylinders
 4 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-82.3 (59.8 - 104.9)
+79.5 (52.4 - 106.5)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1624,7 +1624,7 @@ Number of cylinders
 6 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-120.9 (93.8 - 148.1)
+115.1 (105.6 - 124.7)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1632,7 +1632,7 @@ Number of cylinders
 8 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-210.4 (182.2 - 238.5)
+206.6 (197.4 - 215.9)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1643,7 +1643,7 @@ Type of transmission
 Automatic transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-170.9 (149.6 - 192.1)
+160.3 (127.1 - 193.5)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1651,7 +1651,7 @@ Automatic transmission
 Manual transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-125.5 (98.6 - 152.4)
+115.6 (53.7 - 177.5)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1665,7 +1665,7 @@ All cars
 All cars
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-20 (18.3 - 21.8)
+20.5 (19.2 - 21.8)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1676,7 +1676,7 @@ Number of cylinders
 4 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-27 (20.4 - 33.6)
+27.4 (19.9 - 34.9)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1684,7 +1684,7 @@ Number of cylinders
 6 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-19.7 (18 - 21.4)
+19.9 (16.8 - 23)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1692,7 +1692,7 @@ Number of cylinders
 8 cylinders
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-15.5 (13.1 - 17.9)
+15.7 (12.5 - 18.9)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1703,7 +1703,7 @@ Type of transmission
 Automatic transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-16.9 (16.7 - 17.1)
+17.7 (17.5 - 17.8)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -1711,7 +1711,7 @@ Automatic transmission
 Manual transmission
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-24.2 (21 - 27.3)
+25.6 (21.2 - 29.9)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

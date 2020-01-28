@@ -2,283 +2,283 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Hi, I&#39;m Paul</title>
-    <link>/tags/</link>
+    <link>https://pgubb.github.io/tags/</link>
     <description>Recent content in Tags on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Wed, 15 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Economic development</title>
-      <link>/tags/economic-development/</link>
+      <link>https://pgubb.github.io/tags/economic-development/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/economic-development/</guid>
+      <guid>https://pgubb.github.io/tags/economic-development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GIS</title>
-      <link>/tags/gis/</link>
+      <link>https://pgubb.github.io/tags/gis/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gis/</guid>
+      <guid>https://pgubb.github.io/tags/gis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Household survey</title>
-      <link>/tags/household-survey/</link>
+      <link>https://pgubb.github.io/tags/household-survey/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/household-survey/</guid>
+      <guid>https://pgubb.github.io/tags/household-survey/</guid>
       <description></description>
     </item>
     
     <item>
       <title>purrr</title>
-      <link>/tags/purrr/</link>
+      <link>https://pgubb.github.io/tags/purrr/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/purrr/</guid>
+      <guid>https://pgubb.github.io/tags/purrr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RStats</title>
-      <link>/tags/rstats/</link>
+      <link>https://pgubb.github.io/tags/rstats/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/rstats/</guid>
+      <guid>https://pgubb.github.io/tags/rstats/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Summary statistics</title>
-      <link>/tags/summary-statistics/</link>
+      <link>https://pgubb.github.io/tags/summary-statistics/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/summary-statistics/</guid>
+      <guid>https://pgubb.github.io/tags/summary-statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualization</title>
-      <link>/tags/visualization/</link>
+      <link>https://pgubb.github.io/tags/visualization/</link>
       <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/visualization/</guid>
+      <guid>https://pgubb.github.io/tags/visualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Financial health</title>
-      <link>/tags/financial-health/</link>
+      <link>https://pgubb.github.io/tags/financial-health/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/financial-health/</guid>
+      <guid>https://pgubb.github.io/tags/financial-health/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Financial inclusion</title>
-      <link>/tags/financial-inclusion/</link>
+      <link>https://pgubb.github.io/tags/financial-inclusion/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/financial-inclusion/</guid>
+      <guid>https://pgubb.github.io/tags/financial-inclusion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Measurement</title>
-      <link>/tags/measurement/</link>
+      <link>https://pgubb.github.io/tags/measurement/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/measurement/</guid>
+      <guid>https://pgubb.github.io/tags/measurement/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kenya</title>
-      <link>/tags/kenya/</link>
+      <link>https://pgubb.github.io/tags/kenya/</link>
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/kenya/</guid>
+      <guid>https://pgubb.github.io/tags/kenya/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Digital credit</title>
-      <link>/tags/digital-credit/</link>
+      <link>https://pgubb.github.io/tags/digital-credit/</link>
       <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/digital-credit/</guid>
+      <guid>https://pgubb.github.io/tags/digital-credit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Behavioral economics</title>
-      <link>/tags/behavioral-economics/</link>
+      <link>https://pgubb.github.io/tags/behavioral-economics/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/behavioral-economics/</guid>
+      <guid>https://pgubb.github.io/tags/behavioral-economics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Impact evaluation</title>
-      <link>/tags/impact-evaluation/</link>
+      <link>https://pgubb.github.io/tags/impact-evaluation/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/impact-evaluation/</guid>
+      <guid>https://pgubb.github.io/tags/impact-evaluation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mobile money</title>
-      <link>/tags/mobile-money/</link>
+      <link>https://pgubb.github.io/tags/mobile-money/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/mobile-money/</guid>
+      <guid>https://pgubb.github.io/tags/mobile-money/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>RCTS</title>
-      <link>/tags/rcts/</link>
+      <title>RCTs</title>
+      <link>https://pgubb.github.io/tags/rcts/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/rcts/</guid>
+      <guid>https://pgubb.github.io/tags/rcts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R-Shiny</title>
-      <link>/tags/r-shiny/</link>
+      <link>https://pgubb.github.io/tags/r-shiny/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-shiny/</guid>
+      <guid>https://pgubb.github.io/tags/r-shiny/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Financial Diaries</title>
-      <link>/tags/financial-diaries/</link>
+      <link>https://pgubb.github.io/tags/financial-diaries/</link>
       <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/tags/financial-diaries/</guid>
+      <guid>https://pgubb.github.io/tags/financial-diaries/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Research methods</title>
-      <link>/tags/research-methods/</link>
+      <link>https://pgubb.github.io/tags/research-methods/</link>
       <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>/tags/research-methods/</guid>
+      <guid>https://pgubb.github.io/tags/research-methods/</guid>
       <description></description>
     </item>
     
     <item>
       <title>South Sudan</title>
-      <link>/tags/south-sudan/</link>
+      <link>https://pgubb.github.io/tags/south-sudan/</link>
       <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>/tags/south-sudan/</guid>
+      <guid>https://pgubb.github.io/tags/south-sudan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Development economics</title>
-      <link>/tags/development-economics/</link>
+      <link>https://pgubb.github.io/tags/development-economics/</link>
       <pubDate>Mon, 30 Jul 2012 00:00:00 +0000</pubDate>
       
-      <guid>/tags/development-economics/</guid>
+      <guid>https://pgubb.github.io/tags/development-economics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Entrepreneurship</title>
-      <link>/tags/entrepreneurship/</link>
+      <link>https://pgubb.github.io/tags/entrepreneurship/</link>
       <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>/tags/entrepreneurship/</guid>
+      <guid>https://pgubb.github.io/tags/entrepreneurship/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Social enterprise</title>
-      <link>/tags/social-enterprise/</link>
+      <link>https://pgubb.github.io/tags/social-enterprise/</link>
       <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>/tags/social-enterprise/</guid>
+      <guid>https://pgubb.github.io/tags/social-enterprise/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Health</title>
-      <link>/tags/health/</link>
+      <link>https://pgubb.github.io/tags/health/</link>
       <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>/tags/health/</guid>
+      <guid>https://pgubb.github.io/tags/health/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sudan</title>
-      <link>/tags/sudan/</link>
+      <link>https://pgubb.github.io/tags/sudan/</link>
       <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>/tags/sudan/</guid>
+      <guid>https://pgubb.github.io/tags/sudan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Development financing</title>
-      <link>/tags/development-financing/</link>
+      <link>https://pgubb.github.io/tags/development-financing/</link>
       <pubDate>Fri, 09 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>/tags/development-financing/</guid>
+      <guid>https://pgubb.github.io/tags/development-financing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Global Health</title>
-      <link>/tags/global-health/</link>
+      <link>https://pgubb.github.io/tags/global-health/</link>
       <pubDate>Fri, 09 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>/tags/global-health/</guid>
+      <guid>https://pgubb.github.io/tags/global-health/</guid>
       <description></description>
     </item>
     
     <item>
       <title>California</title>
-      <link>/tags/california/</link>
+      <link>https://pgubb.github.io/tags/california/</link>
       <pubDate>Sat, 01 Sep 2007 00:00:00 +0000</pubDate>
       
-      <guid>/tags/california/</guid>
+      <guid>https://pgubb.github.io/tags/california/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Education</title>
-      <link>/tags/education/</link>
+      <link>https://pgubb.github.io/tags/education/</link>
       <pubDate>Sat, 01 Sep 2007 00:00:00 +0000</pubDate>
       
-      <guid>/tags/education/</guid>
+      <guid>https://pgubb.github.io/tags/education/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Evaluation</title>
-      <link>/tags/evaluation/</link>
+      <link>https://pgubb.github.io/tags/evaluation/</link>
       <pubDate>Sat, 01 Sep 2007 00:00:00 +0000</pubDate>
       
-      <guid>/tags/evaluation/</guid>
+      <guid>https://pgubb.github.io/tags/evaluation/</guid>
       <description></description>
     </item>
     

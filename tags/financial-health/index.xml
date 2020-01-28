@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Financial health on Hi, I&#39;m Paul</title>
-    <link>/tags/financial-health/</link>
+    <link>https://pgubb.github.io/tags/financial-health/</link>
     <description>Recent content in Financial health on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/tags/financial-health/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/tags/financial-health/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Measuring Financial Health</title>
-      <link>/project/fsdkenya-financialhealth/</link>
+      <link>https://pgubb.github.io/project/fsdkenya-financialhealth/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>/project/fsdkenya-financialhealth/</guid>
+      <guid>https://pgubb.github.io/project/fsdkenya-financialhealth/</guid>
       <description>&lt;p&gt;Can new measurement concepts improve our understanding of how financial systems are contributing to people&#39;s well-being? Here are some resources I&#39;ve developed to explore the role and utility of financial health as a measurement concept to complement measures of access and usage of financial services:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;

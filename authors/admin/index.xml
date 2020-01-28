@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hi, I&#39;m Paul</title>
-    <link>/authors/admin/</link>
+    <link>https://pgubb.github.io/authors/admin/</link>
     <description>Recent content on Hi, I&#39;m Paul</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
     <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	    <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://pgubb.github.io/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Exploring the links between finance, technology and growth in Kenya</title>
-      <link>/publication/finance-technology-growth/</link>
+      <link>https://pgubb.github.io/publication/finance-technology-growth/</link>
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/publication/finance-technology-growth/</guid>
+      <guid>https://pgubb.github.io/publication/finance-technology-growth/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cost of Banking 2018</title>
-      <link>/publication/cost-of-banking/</link>
+      <link>https://pgubb.github.io/publication/cost-of-banking/</link>
       <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/publication/cost-of-banking/</guid>
+      <guid>https://pgubb.github.io/publication/cost-of-banking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>How is digital credit changing the lives of Kenyans?</title>
-      <link>/publication/digital-credit-mshwariimpacts/</link>
+      <link>https://pgubb.github.io/publication/digital-credit-mshwariimpacts/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/publication/digital-credit-mshwariimpacts/</guid>
+      <guid>https://pgubb.github.io/publication/digital-credit-mshwariimpacts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Digital credit in Kenya: evidence from demand-side surveys</title>
-      <link>/publication/digital-credit-surveyevidence/</link>
+      <link>https://pgubb.github.io/publication/digital-credit-surveyevidence/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/publication/digital-credit-surveyevidence/</guid>
+      <guid>https://pgubb.github.io/publication/digital-credit-surveyevidence/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A close look at the long-term impacts of mobile money study</title>
-      <link>/post/fsdk_mpesa-impact/</link>
+      <link>https://pgubb.github.io/post/fsdk_mpesa-impact/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/fsdk_mpesa-impact/</guid>
+      <guid>https://pgubb.github.io/post/fsdk_mpesa-impact/</guid>
       <description>&lt;p&gt;In 2008, the New York Times ran a story asking &lt;a href=&#34;http://www.nytimes.com/2008/04/13/magazine/13anthropology-t.html&#34;&gt;“Can the cellphone help end global poverty?”&lt;/a&gt;. Last year, in the concluding sentence of a &lt;a href=&#34;https://science.sciencemag.org/content/354/6317/1288&#34;&gt;study&lt;/a&gt; published in Science, the authors - Tavneet Suri of MIT and William Jack of Georgetown University - provided an answer: “although mobile phone use correlates well with economic development, mobile money causes it.”&lt;/p&gt;
 &lt;p&gt;This is a rather bold claim that I think stretches the findings a bit too far beyond the support of the evidence. Not surprisingly, in the days since it was released, the study received widespread attention in both mainstream and social media (For example, &lt;a href=&#34;http://www.vox.com/world/2016/12/8/13875908/kenya-mobile-money-mpesa-poverty&#34;&gt;here&lt;/a&gt;, &lt;a href=&#34;http://www.npr.org/sections/goatsandsoda/2016/12/09/504540392/dial-m-for-money-can-mobile-banking-lift-people-out-of-poverty&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://www.weforum.org/agenda/2016/12/the-evidence-is-in-mobile-money-can-help-close-the-gender-gap/&#34;&gt;here&lt;/a&gt;). This is a very strong and carefully done study and one that deserves attention but it is also important to acknowledge that it is a single study, with certain limitations, in one specific context. Before we run off and declare M-PESA the solution to poverty or the best thing society can do for female headed households, it is important to fully appraise the evidence.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Why this study is important.&lt;/strong&gt;&lt;/p&gt;
@@ -122,10 +122,10 @@
     
     <item>
       <title>Design That Can Be Understood by Almost Everyone: the Case of Ikea and Seed Insurance</title>
-      <link>/post/fsdk-design-cropinsurance/</link>
+      <link>https://pgubb.github.io/post/fsdk-design-cropinsurance/</link>
       <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/fsdk-design-cropinsurance/</guid>
+      <guid>https://pgubb.github.io/post/fsdk-design-cropinsurance/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“…fintech innovations need to be more inclusive, easier to use, and designers should work harder to provide greater consumer protection and empowerment.”&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -171,10 +171,10 @@
     
     <item>
       <title>The End of Magic and the Beginning of Wisdom</title>
-      <link>/post/fsdk-endofmagic/</link>
+      <link>https://pgubb.github.io/post/fsdk-endofmagic/</link>
       <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/post/fsdk-endofmagic/</guid>
+      <guid>https://pgubb.github.io/post/fsdk-endofmagic/</guid>
       <description>&lt;p&gt;As a university economics student, I was obsessed with two topics: development and econometrics. The former, because the field enabled me to explore questions about the patterns of wealth and poverty that I saw in Chile and Mexico growing up and struggled to find answers to. The latter, because the fancy statistical models that were taught in econometrics courses seemed powerful: when combined with good data (a big if!) it felt as if those models could reveal the secrets of development and the knowledge to make the world better.&lt;/p&gt;
 &lt;p&gt;In the years after I graduated university, development economics underwent a methodological “revolution” that started with a loss in confidence in the ability of econometric models trained on large-scale observational data to tease out truth. The leaders of this revolution were inspired by the “long and wretched” history of medicine (Philip Tetlock succinctly describes this history in a chapter called “Illusions of Knowledge” in his book Superforecasting), where useless and often harmful interventions (like bloodletting) persisted over centuries and physicians debated their theories and practices “like blind men arguing over the colors of the rainbow” – as the historian Ira Rutkow observed. Medical decision-making was based mostly on intuition, informed at best by flawed observations and untroubled by doubt. Physicians were quick to make up their minds about interventions and too slow to change them. Not until the mid-20th century did the idea of randomized experiments, careful measurement and statistical power take hold in medicine.&lt;/p&gt;
 &lt;p&gt;While it may be harsh to compare the state of development economics in the early 21st century with the state of medicine in the 1st century, it was on the grounds of providing a path out of ignorance that RCTs have been adopted widely in the past 10 years as a favored way to establish evidence about “what works” in development. But can RCTs do for economics what they did for medicine? Are they any better than other tools in helping us learn about how societies achieve prosperity?&lt;/p&gt;
@@ -201,82 +201,82 @@
     
     <item>
       <title>Kenya Economic Update 8, Special Focus: Poverty</title>
-      <link>/publication/keu-8/</link>
+      <link>https://pgubb.github.io/publication/keu-8/</link>
       <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>/publication/keu-8/</guid>
+      <guid>https://pgubb.github.io/publication/keu-8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Challenges and opportunities of mobile phone-based data collection: evidence from South Sudan</title>
-      <link>/publication/sseps/</link>
+      <link>https://pgubb.github.io/publication/sseps/</link>
       <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>/publication/sseps/</guid>
+      <guid>https://pgubb.github.io/publication/sseps/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kenya Economic Update 7, Special Focus: Jobs</title>
-      <link>/publication/keu-7/</link>
+      <link>https://pgubb.github.io/publication/keu-7/</link>
       <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>/publication/keu-7/</guid>
+      <guid>https://pgubb.github.io/publication/keu-7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Developing a comprehensive time series of GDP per capita for 210 countries from 1950 to 2015</title>
-      <link>/publication/gdp-estimates/</link>
+      <link>https://pgubb.github.io/publication/gdp-estimates/</link>
       <pubDate>Mon, 30 Jul 2012 00:00:00 +0000</pubDate>
       
-      <guid>/publication/gdp-estimates/</guid>
+      <guid>https://pgubb.github.io/publication/gdp-estimates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Maternal and Child Health in Sudan.</title>
-      <link>/publication/maternal-childhealth-sudan/</link>
+      <link>https://pgubb.github.io/publication/maternal-childhealth-sudan/</link>
       <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>/publication/maternal-childhealth-sudan/</guid>
+      <guid>https://pgubb.github.io/publication/maternal-childhealth-sudan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Progress and Challenges for Improving Child &amp; Maternal Health in a Post-conflict Setting: The Case of South Sudan.</title>
-      <link>/publication/maternal-childhealth-southsudan/</link>
+      <link>https://pgubb.github.io/publication/maternal-childhealth-southsudan/</link>
       <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>/publication/maternal-childhealth-southsudan/</guid>
+      <guid>https://pgubb.github.io/publication/maternal-childhealth-southsudan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Public financing of health in developing countries: a cross-national systematic analysis</title>
-      <link>/publication/public-financing-of-health/</link>
+      <link>https://pgubb.github.io/publication/public-financing-of-health/</link>
       <pubDate>Fri, 09 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>/publication/public-financing-of-health/</guid>
+      <guid>https://pgubb.github.io/publication/public-financing-of-health/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Financing of global health: tracking development assistance for health from 1990 to 2007</title>
-      <link>/publication/financing-global-health/</link>
+      <link>https://pgubb.github.io/publication/financing-global-health/</link>
       <pubDate>Sat, 20 Jun 2009 00:00:00 +0000</pubDate>
       
-      <guid>/publication/financing-global-health/</guid>
+      <guid>https://pgubb.github.io/publication/financing-global-health/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Evaluation Study of California&#39;s High Priority Schools Grant Program</title>
-      <link>/publication/hpsgp/</link>
+      <link>https://pgubb.github.io/publication/hpsgp/</link>
       <pubDate>Sat, 01 Sep 2007 00:00:00 +0000</pubDate>
       
-      <guid>/publication/hpsgp/</guid>
+      <guid>https://pgubb.github.io/publication/hpsgp/</guid>
       <description></description>
     </item>
     

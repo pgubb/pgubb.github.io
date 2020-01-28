@@ -3,532 +3,527 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/courses/example/example1/</loc>
+    <loc>https://pgubb.github.io/courses/example/example1/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example.1/example3/</loc>
+    <loc>https://pgubb.github.io/courses/example.1/example3/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example.2/example3/</loc>
+    <loc>https://pgubb.github.io/courses/example.2/example3/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example.1/</loc>
+    <loc>https://pgubb.github.io/courses/example.1/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example.2/</loc>
+    <loc>https://pgubb.github.io/courses/example.2/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example/</loc>
+    <loc>https://pgubb.github.io/courses/example/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example.2/example4/</loc>
+    <loc>https://pgubb.github.io/courses/example.2/example4/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example/example2/</loc>
+    <loc>https://pgubb.github.io/courses/example/example2/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/example.1/example4/</loc>
+    <loc>https://pgubb.github.io/courses/example.1/example4/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/coding/</loc>
+    <loc>https://pgubb.github.io/talk/coding/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://pgubb.github.io/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/qualitative/</loc>
+    <loc>https://pgubb.github.io/talk/qualitative/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/</loc>
+    <loc>https://pgubb.github.io/talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/synthesizing/</loc>
+    <loc>https://pgubb.github.io/talk/synthesizing/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://pgubb.github.io/categories/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/economic-development/</loc>
+    <loc>https://pgubb.github.io/tags/economic-development/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/gis/</loc>
+    <loc>https://pgubb.github.io/tags/gis/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/household-survey/</loc>
+    <loc>https://pgubb.github.io/tags/household-survey/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>https://pgubb.github.io/post/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/wb_povmapping/</loc>
+    <loc>https://pgubb.github.io/project/wb_povmapping/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/</loc>
+    <loc>https://pgubb.github.io/project/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/purrr/</loc>
+    <loc>https://pgubb.github.io/tags/purrr/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
+    <loc>https://pgubb.github.io/categories/r/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rstats/</loc>
+    <loc>https://pgubb.github.io/tags/rstats/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2020-01-15-r-summarystats/</loc>
+    <loc>https://pgubb.github.io/post/2020-01-15-r-summarystats/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/summary-statistics/</loc>
+    <loc>https://pgubb.github.io/tags/summary-statistics/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://pgubb.github.io/tags/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/visualization/</loc>
+    <loc>https://pgubb.github.io/tags/visualization/</loc>
     <lastmod>2020-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/financial-health/</loc>
+    <loc>https://pgubb.github.io/tags/financial-health/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/financial-inclusion/</loc>
+    <loc>https://pgubb.github.io/tags/financial-inclusion/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/fsdkenya-findiaries/</loc>
+    <loc>https://pgubb.github.io/project/fsdkenya-findiaries/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/measurement/</loc>
+    <loc>https://pgubb.github.io/tags/measurement/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/fsdkenya-financialhealth/</loc>
+    <loc>https://pgubb.github.io/project/fsdkenya-financialhealth/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/admin/</loc>
+    <loc>https://pgubb.github.io/authors/admin/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication_types/4/</loc>
+    <loc>https://pgubb.github.io/publication_types/4/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/</loc>
+    <loc>https://pgubb.github.io/authors/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/finance-technology-growth/</loc>
+    <loc>https://pgubb.github.io/publication/finance-technology-growth/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/kenya/</loc>
+    <loc>https://pgubb.github.io/tags/kenya/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication_types/</loc>
+    <loc>https://pgubb.github.io/publication_types/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/</loc>
+    <loc>https://pgubb.github.io/publication/</loc>
     <lastmod>2019-12-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/cost-of-banking/</loc>
+    <loc>https://pgubb.github.io/publication/cost-of-banking/</loc>
     <lastmod>2019-12-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/digital-credit/</loc>
+    <loc>https://pgubb.github.io/tags/digital-credit/</loc>
     <lastmod>2019-12-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/edoardo-totolo/</loc>
+    <loc>https://pgubb.github.io/authors/edoardo-totolo/</loc>
     <lastmod>2019-12-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/francis-gwer/</loc>
+    <loc>https://pgubb.github.io/authors/francis-gwer/</loc>
     <lastmod>2019-12-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/jack-odero/</loc>
+    <loc>https://pgubb.github.io/authors/jack-odero/</loc>
     <lastmod>2019-12-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/slides/</loc>
+    <loc>https://pgubb.github.io/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/slides/example/</loc>
+    <loc>https://pgubb.github.io/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://pgubb.github.io/about/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/projects/</loc>
+    <loc>https://pgubb.github.io/projects/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/digital-credit-mshwariimpacts/</loc>
+    <loc>https://pgubb.github.io/publication/digital-credit-mshwariimpacts/</loc>
     <lastmod>2018-10-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/tavneet-suri/</loc>
+    <loc>https://pgubb.github.io/authors/tavneet-suri/</loc>
     <lastmod>2018-10-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/digital-credit-surveyevidence/</loc>
+    <loc>https://pgubb.github.io/publication/digital-credit-surveyevidence/</loc>
     <lastmod>2018-10-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/fsdk_mpesa-impact/</loc>
+    <loc>https://pgubb.github.io/post/fsdk_mpesa-impact/</loc>
     <lastmod>2016-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/behavioral-economics/</loc>
+    <loc>https://pgubb.github.io/tags/behavioral-economics/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/fsdk-design-cropinsurance/</loc>
+    <loc>https://pgubb.github.io/post/fsdk-design-cropinsurance/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/impact-evaluation/</loc>
+    <loc>https://pgubb.github.io/tags/impact-evaluation/</loc>
     <lastmod>2016-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/mobile-money/</loc>
+    <loc>https://pgubb.github.io/tags/mobile-money/</loc>
     <lastmod>2016-12-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rcts/</loc>
+    <loc>https://pgubb.github.io/tags/rcts/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/fsdkenya-viz/</loc>
+    <loc>https://pgubb.github.io/project/fsdkenya-viz/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/wb-knspexp/</loc>
+    <loc>https://pgubb.github.io/project/wb-knspexp/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/wb-povsim/</loc>
+    <loc>https://pgubb.github.io/project/wb-povsim/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r-shiny/</loc>
+    <loc>https://pgubb.github.io/tags/r-shiny/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/financial-diaries/</loc>
+    <loc>https://pgubb.github.io/tags/financial-diaries/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/fsdk-endofmagic/</loc>
+    <loc>https://pgubb.github.io/post/fsdk-endofmagic/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/keu-8/</loc>
+    <loc>https://pgubb.github.io/publication/keu-8/</loc>
     <lastmod>2013-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/alessandro-romeo/</loc>
+    <loc>https://pgubb.github.io/authors/alessandro-romeo/</loc>
     <lastmod>2013-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/sseps/</loc>
+    <loc>https://pgubb.github.io/publication/sseps/</loc>
     <lastmod>2013-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/gabriel-demombynes/</loc>
+    <loc>https://pgubb.github.io/authors/gabriel-demombynes/</loc>
     <lastmod>2013-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/research-methods/</loc>
+    <loc>https://pgubb.github.io/tags/research-methods/</loc>
     <lastmod>2013-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/south-sudan/</loc>
+    <loc>https://pgubb.github.io/tags/south-sudan/</loc>
     <lastmod>2013-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/keu-7/</loc>
+    <loc>https://pgubb.github.io/publication/keu-7/</loc>
     <lastmod>2012-12-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication_types/2/</loc>
+    <loc>https://pgubb.github.io/publication_types/2/</loc>
     <lastmod>2012-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/christopher-jl-murray/</loc>
+    <loc>https://pgubb.github.io/authors/christopher-jl-murray/</loc>
     <lastmod>2012-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/gdp-estimates/</loc>
+    <loc>https://pgubb.github.io/publication/gdp-estimates/</loc>
     <lastmod>2012-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/development-economics/</loc>
+    <loc>https://pgubb.github.io/tags/development-economics/</loc>
     <lastmod>2012-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/emmanuela-gakidou/</loc>
+    <loc>https://pgubb.github.io/authors/emmanuela-gakidou/</loc>
     <lastmod>2012-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/spencer-l-james/</loc>
+    <loc>https://pgubb.github.io/authors/spencer-l-james/</loc>
     <lastmod>2012-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/entrepreneurship/</loc>
+    <loc>https://pgubb.github.io/tags/entrepreneurship/</loc>
     <lastmod>2012-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/social-enterprise/</loc>
+    <loc>https://pgubb.github.io/tags/social-enterprise/</loc>
     <lastmod>2012-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/project/per-willtocreate/</loc>
+    <loc>https://pgubb.github.io/project/per-willtocreate/</loc>
     <lastmod>2012-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication_types/3/</loc>
+    <loc>https://pgubb.github.io/publication_types/3/</loc>
     <lastmod>2011-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/damien-de-walque/</loc>
+    <loc>https://pgubb.github.io/authors/damien-de-walque/</loc>
     <lastmod>2011-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/health/</loc>
+    <loc>https://pgubb.github.io/tags/health/</loc>
     <lastmod>2011-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/maternal-childhealth-sudan/</loc>
+    <loc>https://pgubb.github.io/publication/maternal-childhealth-sudan/</loc>
     <lastmod>2011-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/maternal-childhealth-southsudan/</loc>
+    <loc>https://pgubb.github.io/publication/maternal-childhealth-southsudan/</loc>
     <lastmod>2011-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/sudan/</loc>
+    <loc>https://pgubb.github.io/tags/sudan/</loc>
     <lastmod>2011-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/chunling-lu/</loc>
+    <loc>https://pgubb.github.io/authors/chunling-lu/</loc>
     <lastmod>2010-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/dean-t-jamison/</loc>
+    <loc>https://pgubb.github.io/authors/dean-t-jamison/</loc>
     <lastmod>2010-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/development-financing/</loc>
+    <loc>https://pgubb.github.io/tags/development-financing/</loc>
     <lastmod>2010-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/global-health/</loc>
+    <loc>https://pgubb.github.io/tags/global-health/</loc>
     <lastmod>2010-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/katherine-leach-kemon/</loc>
+    <loc>https://pgubb.github.io/authors/katherine-leach-kemon/</loc>
     <lastmod>2010-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/matthew-schneider/</loc>
+    <loc>https://pgubb.github.io/authors/matthew-schneider/</loc>
     <lastmod>2010-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/public-financing-of-health/</loc>
+    <loc>https://pgubb.github.io/publication/public-financing-of-health/</loc>
     <lastmod>2010-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/catherine-m-michaud/</loc>
+    <loc>https://pgubb.github.io/authors/catherine-m-michaud/</loc>
     <lastmod>2009-06-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/financing-global-health/</loc>
+    <loc>https://pgubb.github.io/publication/financing-global-health/</loc>
     <lastmod>2009-06-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/nirmala-ravishankar/</loc>
+    <loc>https://pgubb.github.io/authors/nirmala-ravishankar/</loc>
     <lastmod>2009-06-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/rebecca-j-cooley/</loc>
+    <loc>https://pgubb.github.io/authors/rebecca-j-cooley/</loc>
     <lastmod>2009-06-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/california/</loc>
+    <loc>https://pgubb.github.io/tags/california/</loc>
     <lastmod>2007-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/education/</loc>
+    <loc>https://pgubb.github.io/tags/education/</loc>
     <lastmod>2007-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/evaluation/</loc>
+    <loc>https://pgubb.github.io/tags/evaluation/</loc>
     <lastmod>2007-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/hpsgp/</loc>
+    <loc>https://pgubb.github.io/publication/hpsgp/</loc>
     <lastmod>2007-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/jenifer-j-harr/</loc>
+    <loc>https://pgubb.github.io/authors/jenifer-j-harr/</loc>
     <lastmod>2007-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/miguel-socias/</loc>
+    <loc>https://pgubb.github.io/authors/miguel-socias/</loc>
     <lastmod>2007-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/tom-parrish/</loc>
+    <loc>https://pgubb.github.io/authors/tom-parrish/</loc>
     <lastmod>2007-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/courses/</loc>
+    <loc>https://pgubb.github.io/courses/</loc>
   </url>
   
 </urlset>
