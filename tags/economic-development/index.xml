@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Economic development on Hi, I&#39;m Paul</title>
+    <link>/tags/economic-development/</link>
+    <description>Recent content in Economic development on Hi, I&#39;m Paul</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
+    <lastBuildDate>Wed, 15 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/economic-development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Poverty mapping</title>
+      <link>/project/wb_povmapping/</link>
+      <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/wb_povmapping/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.paulgubbins.com/KPVDb.html&#34;&gt;Kenya map of poverty &amp;amp; vulnerability&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www5.worldbank.org/mapvietnam/&#34;&gt;Map Vietnam&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exploring the links between finance, technology and growth in Kenya</title>
+      <link>/publication/finance-technology-growth/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/finance-technology-growth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kenya National Safety Net Program Expansion Tool</title>
+      <link>/project/wb-knspexp/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/wb-knspexp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Povsim</title>
+      <link>/project/wb-povsim/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/wb-povsim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kenya Economic Update 8, Special Focus: Poverty</title>
+      <link>/publication/keu-8/</link>
+      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/keu-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Challenges and opportunities of mobile phone-based data collection: evidence from South Sudan</title>
+      <link>/publication/sseps/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/sseps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kenya Economic Update 7, Special Focus: Jobs</title>
+      <link>/publication/keu-7/</link>
+      <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/keu-7/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

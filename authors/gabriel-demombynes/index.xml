@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gabriel Demombynes on Hi, I&#39;m Paul</title>
+    <link>/authors/gabriel-demombynes/</link>
+    <description>Recent content in Gabriel Demombynes on Hi, I&#39;m Paul</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
+    <lastBuildDate>Tue, 01 Jan 2013 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/authors/gabriel-demombynes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Challenges and opportunities of mobile phone-based data collection: evidence from South Sudan</title>
+      <link>/publication/sseps/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/sseps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kenya Economic Update 7, Special Focus: Jobs</title>
+      <link>/publication/keu-7/</link>
+      <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/keu-7/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

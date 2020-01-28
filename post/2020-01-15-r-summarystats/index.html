@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.62.2" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Paul Gubbins">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Using functional programming to efficiently compute and structure summary statistics from survey data.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2020-01-15-r-summarystats/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arapey:400,400i|Karla:400,700|Roboto&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academia.min.1bc8c54d9267387f2b5faf59bcd95eb5.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2020-01-15-r-summarystats/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Hi, I&#39;m Paul">
+  <meta property="og:url" content="/post/2020-01-15-r-summarystats/">
+  <meta property="og:title" content="Streamlining the analysis of survey data using functional programming in R | Hi, I&#39;m Paul">
+  <meta property="og:description" content="Using functional programming to efficiently compute and structure summary statistics from survey data."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-01-15T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2020-01-15T00:00:00&#43;00:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Streamlining the analysis of survey data using functional programming in R | Hi, I&#39;m Paul</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Hi, I&#39;m Paul</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/post/"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/projects/"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication/"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/about/"><span>About/Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article py-5" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+    
+    
+    <div class="article-container py-3">
+      <h1 itemprop="name">Streamlining the analysis of survey data using functional programming in R</h1>
+
+      
+
+      
+      
+
+
+
+<meta content="2020-01-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2020-01-15 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 15, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    10 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/r/">R</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2020-01-15-r-summarystats/&amp;text=Streamlining%20the%20analysis%20of%20survey%20data%20using%20functional%20programming%20in%20R" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2020-01-15-r-summarystats/&amp;t=Streamlining%20the%20analysis%20of%20survey%20data%20using%20functional%20programming%20in%20R" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Streamlining%20the%20analysis%20of%20survey%20data%20using%20functional%20programming%20in%20R&amp;body=/post/2020-01-15-r-summarystats/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2020-01-15-r-summarystats/&amp;title=Streamlining%20the%20analysis%20of%20survey%20data%20using%20functional%20programming%20in%20R" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Streamlining%20the%20analysis%20of%20survey%20data%20using%20functional%20programming%20in%20R%20/post/2020-01-15-r-summarystats/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+    </div>
+  </div>
+</div>
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="using-functional-programming-to-efficiently-compute-and-structure-summary-statistics-from-survey-data" class="section level2">
+<h2>Using functional programming to efficiently compute and structure summary statistics from survey data</h2>
+<p>One of the things I often do in my work is compute the weighted mean and confidence intervals of indicators constructed from probability sampled survey data for the overall population and for sub-groups of the population defined by certain characteristics such as the gender, age or socio-economic status of the respondent. In this post I’ll show one of the workflows I use to generate sample statistics from survey data and have those results structured in a way that makes them easy to visualize later (ie. with ggplot).</p>
+<p>The general approach is as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Create descriptive labels of the indicators (numeric variables) that you want to estimate the means for and store these in a named vector.</li>
+<li>Create descriptive labels of the population groups (categorical variables) for which you want estimates and store these in a named vector.</li>
+<li>Create a custom function that computes the weighted mean (and potentially any other summary statistic) of a single variable given a primary sampling unit, probability weight and stratum.</li>
+<li>Apply the custom function from (3) to each of the unique combination of indicators and grouping variables in your dataset defined in (1) and (2).</li>
+</ol>
+<p>This post assumes you have some handle on the data manipulation and transformation techniques facilitated by the family of functions in the <code>dplyr</code> package. If not, the <a href="https://r4ds.had.co.nz/transform.html">R for Data Science</a> book/ online resource is an excellent place to start.</p>
+<p>I’ll begin using a simple example using the mtcars dataset and then show another example in cases where you have data from a probability sampling procedure (as is often the case with household surveys.)</p>
+<div id="simple-example" class="section level3">
+<h3>1. Simple example</h3>
+<pre class="r"><code>
+##-------- STEP 0: Data preparation
+
+## Ensuring categorical grouping variables are factors with descriptive labels
+
+data &lt;- mtcars %&gt;% 
+          mutate(
+            fullsample = factor(&quot;All cars&quot;), 
+            cyl = factor(cyl, levels = c(4, 6, 8), labels = c(&quot;4 cylinders&quot;, &quot;6 cylinders&quot;, &quot;8 cylinders&quot;)), 
+            am = factor(am, levels = c(0, 1), labels = c(&quot;Automatic transmission&quot;, &quot;Manual transmission&quot;))
+          )</code></pre>
+<pre class="r"><code>
+##-------- STEP 1-2
+
+## Named vector of all the numeric variables
+## we want the sample means for:
+indicators &lt;- c(&quot;mpg&quot; = &quot;Miles per gallon&quot;, 
+               &quot;hp&quot; = &quot;Gross horsepower&quot;, 
+               &quot;disp&quot; = &quot;Displacement (cu. in.)&quot;, 
+               &quot;wt&quot; = &quot;Weight (1,000 lbs)&quot;)
+
+# Named vector of all the categorical variables
+# containing population sub-groups we want sample means for:
+groups &lt;- c(&quot;fullsample&quot; = &quot;All cars&quot;, 
+            &quot;cyl&quot; = &quot;Number of cylinders&quot;, 
+            &quot;am&quot; = &quot;Type of transmission&quot;)</code></pre>
+<p>The code section below creates a function called <code>svy_summary</code> which requires 5 inputs: <code>data</code> (your dataset), <code>i</code> (a string - the column name of an indicator in data), <code>g</code> (a string - the column name of a grouping variable in data), <code>iref</code> (a lookup vector with the descriptive names of the indicator), <code>gref</code> (a lookup vector with the descriptive names of the grouping variable). In the code for this function you will see some functions and operators that you may not have seen before, specifically <code>sym</code>, <code>as_string</code> and <code>!!</code>. These are all part of the <code>rlang</code> library which provides a set of tools for <a href="https://tidyeval.tidyverse.org">tidy evaluation</a> - to help you write functions using tidyverse pipelines and grammars. The <code>svy_summary</code> function returns a data frame with the estimates for the mean and the 95% confidence interval for the indicators and groups specified, as well as descriptive information. The function assumes that there is a variable called “fullsample” to accomodate the case where you want to estimate the mean and confidence interval of an indicator for the population as a whole.</p>
+<pre class="r"><code>
+#----------STEP 3:
+# Creating function to compute mean &amp; standard deviation (no sampling weights or complex survey design) 
+#given an indicator and grouping variable
+
+# INPUTS:
+# data --&gt; dnenotes data frame you are using
+# i --&gt; indicator(s)
+# g --&gt; population sub-group(s)
+# iref --&gt; named vector which provides labels for all of your indicators (variables)
+# gref --&gt; named vector which provides labels for all of the variables that contain your sub-groups
+
+svy_summary &lt;- function(data, i, g, iref, gref) { 
+  
+  i &lt;- sym(i)
+  g &lt;- sym(g)
+
+  # Computing mean and 95% confidence interval, 
+  # adding a name for the indicator, 
+  # and group names for group variable
+  
+  if (as_string(g) %in% c(&quot;fullsample&quot;)) { 
+    results &lt;- data %&gt;%
+      summarize(
+        mean = mean(!!i, na.rm=TRUE), 
+        sd = sd(!!i, na.rm = TRUE), 
+        se = sd/sqrt(length(!!i))
+      ) %&gt;% 
+      mutate(
+        group_cat_val = gref[as_string(g)]
+      )
+  }
+  else {
+    results &lt;- data %&gt;%
+      group_by(!!g) %&gt;%
+      summarize(
+        mean = mean(!!i, na.rm=TRUE), 
+        sd = sd(!!i, na.rm = TRUE), 
+        se = sd/sqrt(length(!!i))
+      ) %&gt;% 
+      mutate(
+        group_cat_val = !!g
+      )
+  }
+  
+  # Computing lower &amp; upper 95%, adding descriptive info
+  results &lt;- results %&gt;%  mutate(
+        lci = mean - qnorm(0.975)*se, 
+        uci = mean + qnorm(0.975)*se, 
+        indicator = as_string(i), 
+        indicator_name = iref[as_string(i)], 
+        group = as_string(g), 
+        group_name = gref[as_string(g)]
+      ) %&gt;%
+      dplyr::select(
+        indicator, indicator_name, group, group_name, group_cat_val, mean, lci, uci
+      )
+  
+  return(results)
+  
+}</code></pre>
+<pre class="r"><code>
+#---------- STEP 4:
+# Apply the function from step 3 to each combination of indicator and grouping variable
+
+combinations &lt;- expand.grid(names(indicators), names(groups), stringsAsFactors = FALSE)
+# Indicators
+is &lt;- combinations[[1]]
+# Groups
+gs &lt;- combinations[[2]]
+
+results &lt;- dplyr::bind_rows(
+              map2(is, gs, svy_summary, data = data, iref = indicators, gref = groups)
+            )
+ </code></pre>
+<pre class="r"><code>
+results %&gt;% 
+  kable() %&gt;% 
+  kable_styling(bootstrap_options = &quot;responsive&quot;, font_size = 10) %&gt;% 
+  scroll_box(height = &quot;250px&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:250px; ">
+<table class="table table-responsive" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+indicator
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+indicator_name
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group_name
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group_cat_val
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+mean
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+lci
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+uci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+fullsample
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:right;">
+20.090625
+</td>
+<td style="text-align:right;">
+18.002432
+</td>
+<td style="text-align:right;">
+22.178818
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+fullsample
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:right;">
+146.687500
+</td>
+<td style="text-align:right;">
+122.932115
+</td>
+<td style="text-align:right;">
+170.442885
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+fullsample
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:right;">
+230.721875
+</td>
+<td style="text-align:right;">
+187.780098
+</td>
+<td style="text-align:right;">
+273.663652
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+fullsample
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:right;">
+3.217250
+</td>
+<td style="text-align:right;">
+2.878238
+</td>
+<td style="text-align:right;">
+3.556262
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:right;">
+26.663636
+</td>
+<td style="text-align:right;">
+23.998548
+</td>
+<td style="text-align:right;">
+29.328725
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:right;">
+19.742857
+</td>
+<td style="text-align:right;">
+18.666059
+</td>
+<td style="text-align:right;">
+20.819655
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:right;">
+15.100000
+</td>
+<td style="text-align:right;">
+13.758990
+</td>
+<td style="text-align:right;">
+16.441011
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:right;">
+82.636364
+</td>
+<td style="text-align:right;">
+70.265074
+</td>
+<td style="text-align:right;">
+95.007653
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:right;">
+122.285714
+</td>
+<td style="text-align:right;">
+104.313621
+</td>
+<td style="text-align:right;">
+140.257807
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:right;">
+209.214286
+</td>
+<td style="text-align:right;">
+182.511451
+</td>
+<td style="text-align:right;">
+235.917121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:right;">
+105.136364
+</td>
+<td style="text-align:right;">
+89.256558
+</td>
+<td style="text-align:right;">
+121.016169
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:right;">
+183.314286
+</td>
+<td style="text-align:right;">
+152.524950
+</td>
+<td style="text-align:right;">
+214.103621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:right;">
+353.100000
+</td>
+<td style="text-align:right;">
+317.599862
+</td>
+<td style="text-align:right;">
+388.600138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:right;">
+2.285727
+</td>
+<td style="text-align:right;">
+1.949143
+</td>
+<td style="text-align:right;">
+2.622312
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:right;">
+3.117143
+</td>
+<td style="text-align:right;">
+2.853163
+</td>
+<td style="text-align:right;">
+3.381123
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:right;">
+3.999214
+</td>
+<td style="text-align:right;">
+3.601421
+</td>
+<td style="text-align:right;">
+4.397007
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:right;">
+17.147368
+</td>
+<td style="text-align:right;">
+15.423439
+</td>
+<td style="text-align:right;">
+18.871298
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:right;">
+24.392308
+</td>
+<td style="text-align:right;">
+21.040220
+</td>
+<td style="text-align:right;">
+27.744396
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:right;">
+160.263158
+</td>
+<td style="text-align:right;">
+136.023522
+</td>
+<td style="text-align:right;">
+184.502793
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:right;">
+126.846154
+</td>
+<td style="text-align:right;">
+81.150194
+</td>
+<td style="text-align:right;">
+172.542114
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:right;">
+290.378947
+</td>
+<td style="text-align:right;">
+240.840644
+</td>
+<td style="text-align:right;">
+339.917251
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:right;">
+143.530769
+</td>
+<td style="text-align:right;">
+96.127012
+</td>
+<td style="text-align:right;">
+190.934526
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:right;">
+3.768895
+</td>
+<td style="text-align:right;">
+3.419339
+</td>
+<td style="text-align:right;">
+4.118450
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:right;">
+2.411000
+</td>
+<td style="text-align:right;">
+2.075611
+</td>
+<td style="text-align:right;">
+2.746389
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="example-with-sampling-weights" class="section level3">
+<h3>2. Example with sampling weights</h3>
+<p>If you have data from a more complex sampling procedure, you can use the set of functions in the <a href="https://cran.r-project.org/web/packages/srvyr/index.html">srvyr</a> package to first define the survey design using <code>as_survey_design</code>.</p>
+<pre class="r"><code>
+#-------- STEP 0: Data preparation
+
+# Adding two columns, one for survey weights, another for the primary sampling unit
+
+data &lt;- data %&gt;% 
+          mutate(
+            probweights = runif(n(), min = 0, max = 1), 
+            psu = rep(1:3, length.out = n()), 
+            strata = 1
+          )</code></pre>
+<pre class="r"><code>
+#---------- STEP 3:
+# Creating function to compute mean &amp; standard deviation 
+# (for a data set with sampling weights or complex survey design) 
+# given an indicator and grouping variable
+
+# INPUTS:
+# same as before, except now you need: 
+# w = survey weights
+# psu = primary sampling units
+# strata = survey strata (if applicable)
+
+svy_summary_weights &lt;- function(data, i, g, psu, strata, w, iref, gref) { 
+  
+  i &lt;- sym(i)
+  g &lt;- sym(g)
+  w &lt;- sym(w)
+  psu &lt;- sym(psu)
+  strata &lt;- sym(strata)
+  
+  # Defining survey design
+  svydesign &lt;- data %&gt;%
+    as_survey_design(ids = !!psu, weight = !!w, strata = !!strata, variables = c(!!i, !!g))
+  
+  # Computing mean and 95% confidence interval, adding a name fot the indicator, and group namees for group variable
+  
+  if (as_string(g) %in% c(&quot;fullsample&quot;)) { 
+    results &lt;- svydesign %&gt;%
+      summarise(
+        mean = survey_mean(!!i, vartype = &quot;ci&quot;, na.rm=TRUE)
+      ) %&gt;% 
+      mutate(
+        group_cat_val = gref[as_string(g)]
+      )
+  }
+  
+  else {
+    results &lt;- svydesign %&gt;%
+      group_by(!!g) %&gt;%
+      summarise(
+        mean = survey_mean(!!i, vartype = &quot;ci&quot;, na.rm=TRUE)
+      ) %&gt;% 
+      mutate(
+        group_cat_val = !!g
+      ) 
+  }
+  
+  results &lt;- results %&gt;% 
+    rename(lci = mean_low, uci = mean_upp) %&gt;% 
+      mutate(
+        indicator = as_string(i), 
+        indicator_name = iref[as_string(i)], 
+        group = as_string(g), 
+        group_name = gref[as_string(g)]
+      ) %&gt;%
+      dplyr::select(
+        indicator, indicator_name, group, group_name, group_cat_val, mean, lci, uci
+      )
+  
+}</code></pre>
+<pre class="r"><code>
+#---------- STEP 4:
+# Apply the function from step 3 to each combination of indicator and grouping variable
+
+combinations &lt;- expand.grid(names(indicators), names(groups), stringsAsFactors = FALSE)
+# Indicators
+is &lt;- combinations[[1]]
+# Groups
+gs &lt;- combinations[[2]]
+
+results &lt;- dplyr::bind_rows(
+              map2(is, 
+                   gs, 
+                   svy_summary_weights, 
+                   data = data, 
+                   iref = indicators, 
+                   gref = groups,
+                   psu = &quot;psu&quot;, 
+                   strata = &quot;strata&quot;, 
+                   w = &quot;probweights&quot;)
+            )
+ </code></pre>
+<pre class="r"><code>
+results %&gt;% 
+  kable() %&gt;% 
+  kable_styling(bootstrap_options = &quot;responsive&quot;, font_size = 10) %&gt;% 
+  scroll_box(height = &quot;250px&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:250px; ">
+<table class="table table-responsive" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+indicator
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+indicator_name
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group_name
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group_cat_val
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+mean
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+lci
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+uci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+fullsample
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:right;">
+20.018762
+</td>
+<td style="text-align:right;">
+18.265494
+</td>
+<td style="text-align:right;">
+21.772030
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+fullsample
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:right;">
+151.422921
+</td>
+<td style="text-align:right;">
+145.877657
+</td>
+<td style="text-align:right;">
+156.968186
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+fullsample
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:right;">
+231.640459
+</td>
+<td style="text-align:right;">
+214.569684
+</td>
+<td style="text-align:right;">
+248.711234
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+fullsample
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:right;">
+3.172685
+</td>
+<td style="text-align:right;">
+2.799507
+</td>
+<td style="text-align:right;">
+3.545862
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:right;">
+26.989995
+</td>
+<td style="text-align:right;">
+20.378503
+</td>
+<td style="text-align:right;">
+33.601486
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:right;">
+19.700489
+</td>
+<td style="text-align:right;">
+18.012244
+</td>
+<td style="text-align:right;">
+21.388735
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:right;">
+15.517195
+</td>
+<td style="text-align:right;">
+13.102477
+</td>
+<td style="text-align:right;">
+17.931914
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:right;">
+82.327543
+</td>
+<td style="text-align:right;">
+59.763813
+</td>
+<td style="text-align:right;">
+104.891273
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:right;">
+120.928422
+</td>
+<td style="text-align:right;">
+93.754503
+</td>
+<td style="text-align:right;">
+148.102341
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:right;">
+210.361549
+</td>
+<td style="text-align:right;">
+182.210530
+</td>
+<td style="text-align:right;">
+238.512569
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:right;">
+102.258884
+</td>
+<td style="text-align:right;">
+51.915169
+</td>
+<td style="text-align:right;">
+152.602598
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:right;">
+165.251695
+</td>
+<td style="text-align:right;">
+158.472465
+</td>
+<td style="text-align:right;">
+172.030925
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:right;">
+345.956336
+</td>
+<td style="text-align:right;">
+319.560998
+</td>
+<td style="text-align:right;">
+372.351674
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:right;">
+2.200298
+</td>
+<td style="text-align:right;">
+1.089149
+</td>
+<td style="text-align:right;">
+3.311446
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:right;">
+3.056134
+</td>
+<td style="text-align:right;">
+2.691757
+</td>
+<td style="text-align:right;">
+3.420511
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+cyl
+</td>
+<td style="text-align:left;">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:right;">
+3.869088
+</td>
+<td style="text-align:right;">
+3.347285
+</td>
+<td style="text-align:right;">
+4.390892
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:right;">
+16.907983
+</td>
+<td style="text-align:right;">
+16.675554
+</td>
+<td style="text-align:right;">
+17.140411
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mpg
+</td>
+<td style="text-align:left;">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:right;">
+24.166265
+</td>
+<td style="text-align:right;">
+21.049698
+</td>
+<td style="text-align:right;">
+27.282833
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:right;">
+170.860277
+</td>
+<td style="text-align:right;">
+149.583268
+</td>
+<td style="text-align:right;">
+192.137287
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hp
+</td>
+<td style="text-align:left;">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:right;">
+125.507714
+</td>
+<td style="text-align:right;">
+98.627690
+</td>
+<td style="text-align:right;">
+152.387738
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:right;">
+292.145561
+</td>
+<td style="text-align:right;">
+229.684615
+</td>
+<td style="text-align:right;">
+354.606508
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+disp
+</td>
+<td style="text-align:left;">
+Displacement (cu. in.)
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:right;">
+150.970935
+</td>
+<td style="text-align:right;">
+86.414742
+</td>
+<td style="text-align:right;">
+215.527128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:right;">
+3.758912
+</td>
+<td style="text-align:right;">
+3.693275
+</td>
+<td style="text-align:right;">
+3.824548
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wt
+</td>
+<td style="text-align:left;">
+Weight (1,000 lbs)
+</td>
+<td style="text-align:left;">
+am
+</td>
+<td style="text-align:left;">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:right;">
+2.391087
+</td>
+<td style="text-align:right;">
+1.878357
+</td>
+<td style="text-align:right;">
+2.903817
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can easily create a more publication friendly of this table (with a subset of the results):</p>
+<pre class="r"><code>
+makeci &lt;- function(m, l, u) { 
+  paste0(round(m, 1), &quot; (&quot;, round(l, 1), &quot; - &quot;, round(u, 1), &quot;)&quot;)
+}
+
+results %&gt;% 
+  mutate(meanci = makeci(mean, lci, uci)) %&gt;% 
+  filter(indicator_name %in% c(&quot;Miles per gallon&quot;, &quot;Gross horsepower&quot;)) %&gt;% 
+  arrange(indicator_name, group_name, group_cat_val) %&gt;%
+  select(indicator_name, group_name, group_cat_val, meanci) %&gt;% 
+  rename(`Performance Indicator` = indicator_name, Feature = group_name, Type = group_cat_val,`Mean (95% Confidence Interval)` = meanci) %&gt;% 
+  kable() %&gt;% 
+  kable_styling(bootstrap_options = &quot;responsive&quot;, font_size = 10) %&gt;% 
+  collapse_rows(columns = 1:2, valign = &quot;top&quot;)</code></pre>
+<table class="table table-responsive" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Performance Indicator
+</th>
+<th style="text-align:left;">
+Feature
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Mean (95% Confidence Interval)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="6">
+Gross horsepower
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+151.4 (145.9 - 157)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="3">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:left;">
+82.3 (59.8 - 104.9)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:left;">
+120.9 (93.8 - 148.1)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:left;">
+210.4 (182.2 - 238.5)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="2">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:left;">
+170.9 (149.6 - 192.1)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:left;">
+125.5 (98.6 - 152.4)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="6">
+Miles per gallon
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+All cars
+</td>
+<td style="text-align:left;">
+20 (18.3 - 21.8)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="3">
+Number of cylinders
+</td>
+<td style="text-align:left;">
+4 cylinders
+</td>
+<td style="text-align:left;">
+27 (20.4 - 33.6)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6 cylinders
+</td>
+<td style="text-align:left;">
+19.7 (18 - 21.4)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8 cylinders
+</td>
+<td style="text-align:left;">
+15.5 (13.1 - 17.9)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;vertical-align: top !important;" rowspan="2">
+Type of transmission
+</td>
+<td style="text-align:left;">
+Automatic transmission
+</td>
+<td style="text-align:left;">
+16.9 (16.7 - 17.1)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Manual transmission
+</td>
+<td style="text-align:left;">
+24.2 (21 - 27.3)
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+</div>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/rstats/">RStats</a>
+  
+  <a class="badge badge-light" href="/tags/purrr/">purrr</a>
+  
+  <a class="badge badge-light" href="/tags/household-survey/">Household survey</a>
+  
+  <a class="badge badge-light" href="/tags/summary-statistics/">Summary statistics</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">Paul Gubbins</a></h5>
+      
+      <p class="card-text" itemprop="description">I help governments, non-profits and companies get the most out of their data in order to advance public policies, programs and innovations that support people's well-being.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="/about/" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/pgubb" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/pgubb" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academia.min.75978b39883a27b262f4f051da2ecf3c.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+          <p class="powered-by">
+            <a href ="https://creativecommons.org/licenses/by-sa/4.0/">LICENSE CC-BY-SA</a>
+            <br>
+            <i class = "fab fa-creative-commons fa-2x"> </i>
+            <i class="fab fa-creative-commons-by fa-2x"></i>
+            <i class="fab fa-creative-commons-sa fa-2x"></i>
+            <br>
+          </p>
+           
+        
+        <p>
+          © Paul Gubbins, 2020 &middot; 
+          Made with the 
+          <a href="https://themefisher.com" target="_blank" rel="noopener">academia theme</a> for
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+        </p>
+      </div>
+       
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

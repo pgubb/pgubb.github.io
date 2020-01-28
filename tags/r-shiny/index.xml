@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R-Shiny on Hi, I&#39;m Paul</title>
+    <link>/tags/r-shiny/</link>
+    <description>Recent content in R-Shiny on Hi, I&#39;m Paul</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
+    <lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/r-shiny/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fintrends, Finvoices and Fintrax</title>
+      <link>/project/fsdkenya-viz/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/fsdkenya-viz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kenya National Safety Net Program Expansion Tool</title>
+      <link>/project/wb-knspexp/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/wb-knspexp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Povsim</title>
+      <link>/project/wb-povsim/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/wb-povsim/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

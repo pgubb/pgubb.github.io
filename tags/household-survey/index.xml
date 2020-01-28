@@ -1,0 +1,1726 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Household survey on Hi, I&#39;m Paul</title>
+    <link>/tags/household-survey/</link>
+    <description>Recent content in Household survey on Hi, I&#39;m Paul</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
+    <lastBuildDate>Wed, 15 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/household-survey/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Streamlining the analysis of survey data using functional programming in R</title>
+      <link>/post/2020-01-15-r-summarystats/</link>
+      <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020-01-15-r-summarystats/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;using-functional-programming-to-efficiently-compute-and-structure-summary-statistics-from-survey-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Using functional programming to efficiently compute and structure summary statistics from survey data&lt;/h2&gt;
+&lt;p&gt;One of the things I often do in my work is compute the weighted mean and confidence intervals of indicators constructed from probability sampled survey data for the overall population and for sub-groups of the population defined by certain characteristics such as the gender, age or socio-economic status of the respondent. In this post I’ll show one of the workflows I use to generate sample statistics from survey data and have those results structured in a way that makes them easy to visualize later (ie. with ggplot).&lt;/p&gt;
+&lt;p&gt;The general approach is as follows:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Create descriptive labels of the indicators (numeric variables) that you want to estimate the means for and store these in a named vector.&lt;/li&gt;
+&lt;li&gt;Create descriptive labels of the population groups (categorical variables) for which you want estimates and store these in a named vector.&lt;/li&gt;
+&lt;li&gt;Create a custom function that computes the weighted mean (and potentially any other summary statistic) of a single variable given a primary sampling unit, probability weight and stratum.&lt;/li&gt;
+&lt;li&gt;Apply the custom function from (3) to each of the unique combination of indicators and grouping variables in your dataset defined in (1) and (2).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This post assumes you have some handle on the data manipulation and transformation techniques facilitated by the family of functions in the &lt;code&gt;dplyr&lt;/code&gt; package. If not, the &lt;a href=&#34;https://r4ds.had.co.nz/transform.html&#34;&gt;R for Data Science&lt;/a&gt; book/ online resource is an excellent place to start.&lt;/p&gt;
+&lt;p&gt;I’ll begin using a simple example using the mtcars dataset and then show another example in cases where you have data from a probability sampling procedure (as is often the case with household surveys.)&lt;/p&gt;
+&lt;div id=&#34;simple-example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1. Simple example&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+##-------- STEP 0: Data preparation
+
+## Ensuring categorical grouping variables are factors with descriptive labels
+
+data &amp;lt;- mtcars %&amp;gt;% 
+          mutate(
+            fullsample = factor(&amp;quot;All cars&amp;quot;), 
+            cyl = factor(cyl, levels = c(4, 6, 8), labels = c(&amp;quot;4 cylinders&amp;quot;, &amp;quot;6 cylinders&amp;quot;, &amp;quot;8 cylinders&amp;quot;)), 
+            am = factor(am, levels = c(0, 1), labels = c(&amp;quot;Automatic transmission&amp;quot;, &amp;quot;Manual transmission&amp;quot;))
+          )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+##-------- STEP 1-2
+
+## Named vector of all the numeric variables
+## we want the sample means for:
+indicators &amp;lt;- c(&amp;quot;mpg&amp;quot; = &amp;quot;Miles per gallon&amp;quot;, 
+               &amp;quot;hp&amp;quot; = &amp;quot;Gross horsepower&amp;quot;, 
+               &amp;quot;disp&amp;quot; = &amp;quot;Displacement (cu. in.)&amp;quot;, 
+               &amp;quot;wt&amp;quot; = &amp;quot;Weight (1,000 lbs)&amp;quot;)
+
+# Named vector of all the categorical variables
+# containing population sub-groups we want sample means for:
+groups &amp;lt;- c(&amp;quot;fullsample&amp;quot; = &amp;quot;All cars&amp;quot;, 
+            &amp;quot;cyl&amp;quot; = &amp;quot;Number of cylinders&amp;quot;, 
+            &amp;quot;am&amp;quot; = &amp;quot;Type of transmission&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The code section below creates a function called &lt;code&gt;svy_summary&lt;/code&gt; which requires 5 inputs: &lt;code&gt;data&lt;/code&gt; (your dataset), &lt;code&gt;i&lt;/code&gt; (a string - the column name of an indicator in data), &lt;code&gt;g&lt;/code&gt; (a string - the column name of a grouping variable in data), &lt;code&gt;iref&lt;/code&gt; (a lookup vector with the descriptive names of the indicator), &lt;code&gt;gref&lt;/code&gt; (a lookup vector with the descriptive names of the grouping variable). In the code for this function you will see some functions and operators that you may not have seen before, specifically &lt;code&gt;sym&lt;/code&gt;, &lt;code&gt;as_string&lt;/code&gt; and &lt;code&gt;!!&lt;/code&gt;. These are all part of the &lt;code&gt;rlang&lt;/code&gt; library which provides a set of tools for &lt;a href=&#34;https://tidyeval.tidyverse.org&#34;&gt;tidy evaluation&lt;/a&gt; - to help you write functions using tidyverse pipelines and grammars. The &lt;code&gt;svy_summary&lt;/code&gt; function returns a data frame with the estimates for the mean and the 95% confidence interval for the indicators and groups specified, as well as descriptive information. The function assumes that there is a variable called “fullsample” to accomodate the case where you want to estimate the mean and confidence interval of an indicator for the population as a whole.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+#----------STEP 3:
+# Creating function to compute mean &amp;amp; standard deviation (no sampling weights or complex survey design) 
+#given an indicator and grouping variable
+
+# INPUTS:
+# data --&amp;gt; dnenotes data frame you are using
+# i --&amp;gt; indicator(s)
+# g --&amp;gt; population sub-group(s)
+# iref --&amp;gt; named vector which provides labels for all of your indicators (variables)
+# gref --&amp;gt; named vector which provides labels for all of the variables that contain your sub-groups
+
+svy_summary &amp;lt;- function(data, i, g, iref, gref) { 
+  
+  i &amp;lt;- sym(i)
+  g &amp;lt;- sym(g)
+
+  # Computing mean and 95% confidence interval, 
+  # adding a name for the indicator, 
+  # and group names for group variable
+  
+  if (as_string(g) %in% c(&amp;quot;fullsample&amp;quot;)) { 
+    results &amp;lt;- data %&amp;gt;%
+      summarize(
+        mean = mean(!!i, na.rm=TRUE), 
+        sd = sd(!!i, na.rm = TRUE), 
+        se = sd/sqrt(length(!!i))
+      ) %&amp;gt;% 
+      mutate(
+        group_cat_val = gref[as_string(g)]
+      )
+  }
+  else {
+    results &amp;lt;- data %&amp;gt;%
+      group_by(!!g) %&amp;gt;%
+      summarize(
+        mean = mean(!!i, na.rm=TRUE), 
+        sd = sd(!!i, na.rm = TRUE), 
+        se = sd/sqrt(length(!!i))
+      ) %&amp;gt;% 
+      mutate(
+        group_cat_val = !!g
+      )
+  }
+  
+  # Computing lower &amp;amp; upper 95%, adding descriptive info
+  results &amp;lt;- results %&amp;gt;%  mutate(
+        lci = mean - qnorm(0.975)*se, 
+        uci = mean + qnorm(0.975)*se, 
+        indicator = as_string(i), 
+        indicator_name = iref[as_string(i)], 
+        group = as_string(g), 
+        group_name = gref[as_string(g)]
+      ) %&amp;gt;%
+      dplyr::select(
+        indicator, indicator_name, group, group_name, group_cat_val, mean, lci, uci
+      )
+  
+  return(results)
+  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+#---------- STEP 4:
+# Apply the function from step 3 to each combination of indicator and grouping variable
+
+combinations &amp;lt;- expand.grid(names(indicators), names(groups), stringsAsFactors = FALSE)
+# Indicators
+is &amp;lt;- combinations[[1]]
+# Groups
+gs &amp;lt;- combinations[[2]]
+
+results &amp;lt;- dplyr::bind_rows(
+              map2(is, gs, svy_summary, data = data, iref = indicators, gref = groups)
+            )
+ &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+results %&amp;gt;% 
+  kable() %&amp;gt;% 
+  kable_styling(bootstrap_options = &amp;quot;responsive&amp;quot;, font_size = 10) %&amp;gt;% 
+  scroll_box(height = &amp;quot;250px&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div style=&#34;border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:250px; &#34;&gt;
+&lt;table class=&#34;table table-responsive&#34; style=&#34;font-size: 10px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+indicator
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+indicator_name
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+group
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+group_name
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+group_cat_val
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+mean
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+lci
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+uci
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+fullsample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20.090625
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18.002432
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22.178818
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+fullsample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+146.687500
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+122.932115
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+170.442885
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+fullsample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+230.721875
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+187.780098
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+273.663652
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+fullsample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.217250
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.878238
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.556262
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+26.663636
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+23.998548
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+29.328725
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+19.742857
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18.666059
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20.819655
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15.100000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+13.758990
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16.441011
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+82.636364
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+70.265074
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+95.007653
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+122.285714
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+104.313621
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+140.257807
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+209.214286
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+182.511451
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+235.917121
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+105.136364
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+89.256558
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+121.016169
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+183.314286
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+152.524950
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+214.103621
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+353.100000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+317.599862
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+388.600138
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.285727
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.949143
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.622312
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.117143
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.853163
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.381123
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.999214
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.601421
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.397007
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17.147368
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15.423439
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18.871298
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+24.392308
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+21.040220
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+27.744396
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+160.263158
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+136.023522
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+184.502793
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+126.846154
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+81.150194
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+172.542114
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+290.378947
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+240.840644
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+339.917251
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+143.530769
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+96.127012
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+190.934526
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.768895
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.419339
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.118450
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.411000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.075611
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.746389
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-with-sampling-weights&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2. Example with sampling weights&lt;/h3&gt;
+&lt;p&gt;If you have data from a more complex sampling procedure, you can use the set of functions in the &lt;a href=&#34;https://cran.r-project.org/web/packages/srvyr/index.html&#34;&gt;srvyr&lt;/a&gt; package to first define the survey design using &lt;code&gt;as_survey_design&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+#-------- STEP 0: Data preparation
+
+# Adding two columns, one for survey weights, another for the primary sampling unit
+
+data &amp;lt;- data %&amp;gt;% 
+          mutate(
+            probweights = runif(n(), min = 0, max = 1), 
+            psu = rep(1:3, length.out = n()), 
+            strata = 1
+          )&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+#---------- STEP 3:
+# Creating function to compute mean &amp;amp; standard deviation 
+# (for a data set with sampling weights or complex survey design) 
+# given an indicator and grouping variable
+
+# INPUTS:
+# same as before, except now you need: 
+# w = survey weights
+# psu = primary sampling units
+# strata = survey strata (if applicable)
+
+svy_summary_weights &amp;lt;- function(data, i, g, psu, strata, w, iref, gref) { 
+  
+  i &amp;lt;- sym(i)
+  g &amp;lt;- sym(g)
+  w &amp;lt;- sym(w)
+  psu &amp;lt;- sym(psu)
+  strata &amp;lt;- sym(strata)
+  
+  # Defining survey design
+  svydesign &amp;lt;- data %&amp;gt;%
+    as_survey_design(ids = !!psu, weight = !!w, strata = !!strata, variables = c(!!i, !!g))
+  
+  # Computing mean and 95% confidence interval, adding a name fot the indicator, and group namees for group variable
+  
+  if (as_string(g) %in% c(&amp;quot;fullsample&amp;quot;)) { 
+    results &amp;lt;- svydesign %&amp;gt;%
+      summarise(
+        mean = survey_mean(!!i, vartype = &amp;quot;ci&amp;quot;, na.rm=TRUE)
+      ) %&amp;gt;% 
+      mutate(
+        group_cat_val = gref[as_string(g)]
+      )
+  }
+  
+  else {
+    results &amp;lt;- svydesign %&amp;gt;%
+      group_by(!!g) %&amp;gt;%
+      summarise(
+        mean = survey_mean(!!i, vartype = &amp;quot;ci&amp;quot;, na.rm=TRUE)
+      ) %&amp;gt;% 
+      mutate(
+        group_cat_val = !!g
+      ) 
+  }
+  
+  results &amp;lt;- results %&amp;gt;% 
+    rename(lci = mean_low, uci = mean_upp) %&amp;gt;% 
+      mutate(
+        indicator = as_string(i), 
+        indicator_name = iref[as_string(i)], 
+        group = as_string(g), 
+        group_name = gref[as_string(g)]
+      ) %&amp;gt;%
+      dplyr::select(
+        indicator, indicator_name, group, group_name, group_cat_val, mean, lci, uci
+      )
+  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+#---------- STEP 4:
+# Apply the function from step 3 to each combination of indicator and grouping variable
+
+combinations &amp;lt;- expand.grid(names(indicators), names(groups), stringsAsFactors = FALSE)
+# Indicators
+is &amp;lt;- combinations[[1]]
+# Groups
+gs &amp;lt;- combinations[[2]]
+
+results &amp;lt;- dplyr::bind_rows(
+              map2(is, 
+                   gs, 
+                   svy_summary_weights, 
+                   data = data, 
+                   iref = indicators, 
+                   gref = groups,
+                   psu = &amp;quot;psu&amp;quot;, 
+                   strata = &amp;quot;strata&amp;quot;, 
+                   w = &amp;quot;probweights&amp;quot;)
+            )
+ &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+results %&amp;gt;% 
+  kable() %&amp;gt;% 
+  kable_styling(bootstrap_options = &amp;quot;responsive&amp;quot;, font_size = 10) %&amp;gt;% 
+  scroll_box(height = &amp;quot;250px&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div style=&#34;border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:250px; &#34;&gt;
+&lt;table class=&#34;table table-responsive&#34; style=&#34;font-size: 10px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+indicator
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+indicator_name
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+group
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+group_name
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+group_cat_val
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+mean
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+lci
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;position: sticky; top:0; background-color: #FFFFFF;&#34;&gt;
+uci
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+fullsample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20.018762
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18.265494
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+21.772030
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+fullsample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+151.422921
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+145.877657
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+156.968186
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+fullsample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+231.640459
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+214.569684
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+248.711234
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+fullsample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.172685
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.799507
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.545862
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+26.989995
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20.378503
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+33.601486
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+19.700489
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18.012244
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+21.388735
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+15.517195
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+13.102477
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17.931914
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+82.327543
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+59.763813
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+104.891273
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+120.928422
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+93.754503
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+148.102341
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+210.361549
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+182.210530
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+238.512569
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+102.258884
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+51.915169
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+152.602598
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+165.251695
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+158.472465
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+172.030925
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+345.956336
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+319.560998
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+372.351674
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.200298
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.089149
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.311446
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.056134
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.691757
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.420511
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+cyl
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.869088
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.347285
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.390892
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16.907983
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+16.675554
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17.140411
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+mpg
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+24.166265
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+21.049698
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+27.282833
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+170.860277
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+149.583268
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+192.137287
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+hp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+125.507714
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+98.627690
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+152.387738
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+292.145561
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+229.684615
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+354.606508
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+disp
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Displacement (cu. in.)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+150.970935
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+86.414742
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+215.527128
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.758912
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.693275
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3.824548
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+wt
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Weight (1,000 lbs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+am
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.391087
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.878357
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.903817
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;You can easily create a more publication friendly of this table (with a subset of the results):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+makeci &amp;lt;- function(m, l, u) { 
+  paste0(round(m, 1), &amp;quot; (&amp;quot;, round(l, 1), &amp;quot; - &amp;quot;, round(u, 1), &amp;quot;)&amp;quot;)
+}
+
+results %&amp;gt;% 
+  mutate(meanci = makeci(mean, lci, uci)) %&amp;gt;% 
+  filter(indicator_name %in% c(&amp;quot;Miles per gallon&amp;quot;, &amp;quot;Gross horsepower&amp;quot;)) %&amp;gt;% 
+  arrange(indicator_name, group_name, group_cat_val) %&amp;gt;%
+  select(indicator_name, group_name, group_cat_val, meanci) %&amp;gt;% 
+  rename(`Performance Indicator` = indicator_name, Feature = group_name, Type = group_cat_val,`Mean (95% Confidence Interval)` = meanci) %&amp;gt;% 
+  kable() %&amp;gt;% 
+  kable_styling(bootstrap_options = &amp;quot;responsive&amp;quot;, font_size = 10) %&amp;gt;% 
+  collapse_rows(columns = 1:2, valign = &amp;quot;top&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table table-responsive&#34; style=&#34;font-size: 10px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Performance Indicator
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Feature
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Type
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Mean (95% Confidence Interval)
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;vertical-align: top !important;&#34; rowspan=&#34;6&#34;&gt;
+Gross horsepower
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+151.4 (145.9 - 157)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;vertical-align: top !important;&#34; rowspan=&#34;3&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+82.3 (59.8 - 104.9)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+120.9 (93.8 - 148.1)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+210.4 (182.2 - 238.5)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;vertical-align: top !important;&#34; rowspan=&#34;2&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+170.9 (149.6 - 192.1)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+125.5 (98.6 - 152.4)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;vertical-align: top !important;&#34; rowspan=&#34;6&#34;&gt;
+Miles per gallon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+All cars
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+20 (18.3 - 21.8)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;vertical-align: top !important;&#34; rowspan=&#34;3&#34;&gt;
+Number of cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+4 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+27 (20.4 - 33.6)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+19.7 (18 - 21.4)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8 cylinders
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+15.5 (13.1 - 17.9)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;vertical-align: top !important;&#34; rowspan=&#34;2&#34;&gt;
+Type of transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Automatic transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+16.9 (16.7 - 17.1)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Manual transmission
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+24.2 (21 - 27.3)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

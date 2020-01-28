@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 on Hi, I&#39;m Paul</title>
+    <link>/publication_types/2/</link>
+    <description>Recent content in 2 on Hi, I&#39;m Paul</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
+    <lastBuildDate>Mon, 30 Jul 2012 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Developing a comprehensive time series of GDP per capita for 210 countries from 1950 to 2015</title>
+      <link>/publication/gdp-estimates/</link>
+      <pubDate>Mon, 30 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/gdp-estimates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Public financing of health in developing countries: a cross-national systematic analysis</title>
+      <link>/publication/public-financing-of-health/</link>
+      <pubDate>Fri, 09 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/public-financing-of-health/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Financing of global health: tracking development assistance for health from 1990 to 2007</title>
+      <link>/publication/financing-global-health/</link>
+      <pubDate>Sat, 20 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/financing-global-health/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

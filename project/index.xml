@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Hi, I&#39;m Paul</title>
+    <link>/project/</link>
+    <description>Recent content in Projects on Hi, I&#39;m Paul</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
+    <lastBuildDate>Wed, 15 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Poverty mapping</title>
+      <link>/project/wb_povmapping/</link>
+      <pubDate>Wed, 15 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/wb_povmapping/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.paulgubbins.com/KPVDb.html&#34;&gt;Kenya map of poverty &amp;amp; vulnerability&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www5.worldbank.org/mapvietnam/&#34;&gt;Map Vietnam&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kenya financial diaries</title>
+      <link>/project/fsdkenya-findiaries/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/fsdkenya-findiaries/</guid>
+      <description>&lt;p&gt;Between 2014-2017, as research lead for FSD Kenya&#39;s consumer insight program, I supported the effort to package and disseminate data and insights from the Kenya financial diaries research program. Here are some of the key resources we developed:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;Kenya financial diaries public access datasets&lt;/a&gt; and &lt;a href=&#34;&#34;&gt;documentation&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;Policy reports &amp;amp; blogs&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;2-year follow up study&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Measuring Financial Health</title>
+      <link>/project/fsdkenya-financialhealth/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/fsdkenya-financialhealth/</guid>
+      <description>&lt;p&gt;Can new measurement concepts improve our understanding of how financial systems are contributing to people&#39;s well-being? Here are some resources I&#39;ve developed to explore the role and utility of financial health as a measurement concept to complement measures of access and usage of financial services:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fsdkenya.org/blog/financial-health-measurement-part-1/&#34;&gt;Building a better compass: creating financial inclusion measures that are allied with people and their well-being, Part 1&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fsdkenya.org/blog/financial-health-measurement-part-2/&#34;&gt;Building a better compass: creating financial inclusion measures that are allied with people and their well-being, Part 2&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fsdkenya.shinyapps.io/gallup_global_financial_health/&#34;&gt;Discussion of Gallup&#39;s Financial Health survey findings in Kenya&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fintrends, Finvoices and Fintrax</title>
+      <link>/project/fsdkenya-viz/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/fsdkenya-viz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kenya National Safety Net Program Expansion Tool</title>
+      <link>/project/wb-knspexp/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/wb-knspexp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Povsim</title>
+      <link>/project/wb-povsim/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/wb-povsim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Will to Create Project</title>
+      <link>/project/per-willtocreate/</link>
+      <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/project/per-willtocreate/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

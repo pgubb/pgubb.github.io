@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Measurement on Hi, I&#39;m Paul</title>
+    <link>/tags/measurement/</link>
+    <description>Recent content in Measurement on Hi, I&#39;m Paul</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/measurement/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Measuring Financial Health</title>
+      <link>/project/fsdkenya-financialhealth/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/fsdkenya-financialhealth/</guid>
+      <description>&lt;p&gt;Can new measurement concepts improve our understanding of how financial systems are contributing to people&#39;s well-being? Here are some resources I&#39;ve developed to explore the role and utility of financial health as a measurement concept to complement measures of access and usage of financial services:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fsdkenya.org/blog/financial-health-measurement-part-1/&#34;&gt;Building a better compass: creating financial inclusion measures that are allied with people and their well-being, Part 1&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fsdkenya.org/blog/financial-health-measurement-part-2/&#34;&gt;Building a better compass: creating financial inclusion measures that are allied with people and their well-being, Part 2&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fsdkenya.shinyapps.io/gallup_global_financial_health/&#34;&gt;Discussion of Gallup&#39;s Financial Health survey findings in Kenya&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Developing a comprehensive time series of GDP per capita for 210 countries from 1950 to 2015</title>
+      <link>/publication/gdp-estimates/</link>
+      <pubDate>Mon, 30 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/gdp-estimates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Public financing of health in developing countries: a cross-national systematic analysis</title>
+      <link>/publication/public-financing-of-health/</link>
+      <pubDate>Fri, 09 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/public-financing-of-health/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Financing of global health: tracking development assistance for health from 1990 to 2007</title>
+      <link>/publication/financing-global-health/</link>
+      <pubDate>Sat, 20 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/financing-global-health/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

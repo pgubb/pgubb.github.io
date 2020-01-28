@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hi, I&#39;m Paul</title>
+    <link>/authors/admin/</link>
+    <description>Recent content on Hi, I&#39;m Paul</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Paul Gubbins, {year}</copyright>
+    <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Exploring the links between finance, technology and growth in Kenya</title>
+      <link>/publication/finance-technology-growth/</link>
+      <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/finance-technology-growth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cost of Banking 2018</title>
+      <link>/publication/cost-of-banking/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/cost-of-banking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How is digital credit changing the lives of Kenyans?</title>
+      <link>/publication/digital-credit-mshwariimpacts/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/digital-credit-mshwariimpacts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Digital credit in Kenya: evidence from demand-side surveys</title>
+      <link>/publication/digital-credit-surveyevidence/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/digital-credit-surveyevidence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A close look at the long-term impacts of mobile money study</title>
+      <link>/post/fsdk_mpesa-impact/</link>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fsdk_mpesa-impact/</guid>
+      <description>&lt;p&gt;In 2008, the New York Times ran a story asking &lt;a href=&#34;http://www.nytimes.com/2008/04/13/magazine/13anthropology-t.html&#34;&gt;“Can the cellphone help end global poverty?”&lt;/a&gt;. Last year, in the concluding sentence of a &lt;a href=&#34;https://science.sciencemag.org/content/354/6317/1288&#34;&gt;study&lt;/a&gt; published in Science, the authors - Tavneet Suri of MIT and William Jack of Georgetown University - provided an answer: “although mobile phone use correlates well with economic development, mobile money causes it.”&lt;/p&gt;
+&lt;p&gt;This is a rather bold claim that I think stretches the findings a bit too far beyond the support of the evidence. Not surprisingly, in the days since it was released, the study received widespread attention in both mainstream and social media (For example, &lt;a href=&#34;http://www.vox.com/world/2016/12/8/13875908/kenya-mobile-money-mpesa-poverty&#34;&gt;here&lt;/a&gt;, &lt;a href=&#34;http://www.npr.org/sections/goatsandsoda/2016/12/09/504540392/dial-m-for-money-can-mobile-banking-lift-people-out-of-poverty&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://www.weforum.org/agenda/2016/12/the-evidence-is-in-mobile-money-can-help-close-the-gender-gap/&#34;&gt;here&lt;/a&gt;). This is a very strong and carefully done study and one that deserves attention but it is also important to acknowledge that it is a single study, with certain limitations, in one specific context. Before we run off and declare M-PESA the solution to poverty or the best thing society can do for female headed households, it is important to fully appraise the evidence.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why this study is important.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;On one hand it is clear that M-PESA has been a run-away success. in 2016 it generated &lt;a href=&#34;https://www.safaricom.co.ke/investor-relation/financials-and-reports/five-year-financial-performance-summary&#34;&gt;USD 415 million in revenues for Safaricom&lt;/a&gt;, is used by 78 percent of Kenya’s adult population and in a context where banking infrastructure was until recently very sparse (in 2007, when M-PESA launched there were 1,000 ATMS, or about 5 ATMS for every 100,000 adults) it created a much cheaper, safer and more efficient way of sending and receiving money over distance than the next best alternative, which for many people involved long travel or sending cash through a third party.  Indeed, that is the reason why M-PESA became such a success, a job that many people needed doing: sending and receiving money within their social network could be done so much more easily with M-PESA. Now people don’t just sent money, they “M-PESA” it.&lt;/p&gt;
+&lt;p&gt;On the other hand, many champions of mobile money and digital finance believe that innovations like M-PESA do much more than generate concentrated benefits for service providers in the form of profits, and diffuse benefits for customers in the form of consumer surplus or cost savings. Certainly this belief motivates many of the institutions funding efforts to boost financial inclusion around the world. Along with a series of cross-country studies looking at the impact of access to microcredit and earlier research by Suri and Jack that explored the short run impact of mobile money on the ability of households to cope with unexpected shocks, there aren’t many studies out there that provide good evidence on the effects of commercial financial services on the long-term economic well-being of the households that access those services.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This is an observational study that makes causal claims, so handle with care.&lt;/strong&gt; This research study pursues the thorniest of questions in the social sciences: a causal one. In a nutshell, the authors ask “does M-PESA cause increases in household consumption and reductions in poverty?”. You might think to yourself, “why not just compare households that use M-PESA versus those that don’t use M-PESA as a way to estimate the effect?” The reason is that if you went out today and took a sample from the 78 percent of adults in Kenya that use M-PESA and compared their consumption levels to a sample from the 22 percent of adults that don’t use M-PESA, much of the difference would be attributable to the fact that on the whole, M-PESA users are more wealthy, more male and more educated than non M-PESA users . You could try your best to compare apples to apples, for example by only comparing users and non-users of M-PESA who are urban and female and who have primary education, but you still would not be sure that you’ve controlled for other factors - such as how socially connected they are - that influence both M-PESA use and future economic outcomes. In any causal analysis, the trick is finding a way to compare economic outcomes among users and non-users of M-PESA (or any other intervention) who are otherwise identical.&lt;/p&gt;
+&lt;p&gt;Economists have increasingly been using randomized control trials (RCTS) to do exactly this. In an RCT, researchers run experiments in which an intervention or treatment (like a drug or access to a training program) is randomly assigned to some people (a “treatment” group) but not others (a “control” group). Randomization attempts to ensure that people in the treatment and control group are similar across both easily observable characteristics (e.g. height, education, income-level) and unobservable or harder to measure characteristics (e.g. attitude, effort, discipline). As a result, any differences in outcomes between the treatment and control group can be interpreted as being caused by the treatment . For ethical and practical reasons, however, RCTs aren’t always possible or desirable.&lt;/p&gt;
+&lt;p&gt;In this study, the authors use a “natural” experiment created by the apparently random way the M-PESA agent network was rolled out shortly after its launch. Rather than follow a well-planned demand-led approach of, for example, expanding the M-PESA agent network to fast growing urban towns or rural market centers, the authors argue that in being overwhelmed by agent applications, Safaricom did not “have the time or resources to approve applications based on local conditions”.  As they state, to estimate the impact of M-PESA in this study, the &lt;strong&gt;&amp;ldquo;key assumption is the change in agent density between 2007 and 2010 is uncorrelated with household and regional characteristics that might have driven demand for the service and future economic outcomes.&amp;quot;&lt;/strong&gt; A series of statistical tests are presented that provide evidence that households in places where the agent network grew fast were no different than households in places where the agent network grew more slowly . For the most part, this assertion seems to hold, save for one exception that can be seen in Table S2A of the supplementary materials. Agent density growth in 2008-2010 was correlated with bank account use in 2008. This may suggest that agent density growth was related to the banking infrastructure footprint when the study started.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This study does not estimate the long run impact of using M-PESA. More specifically, the study estimates the economic outcomes that materialize four years after exposure to changes in the number of mobile money agents near households that occurred in the initial years following M-PESA’s launch.&lt;/strong&gt; Perhaps the most important thing to know about the methodology is that the impact of mobile money is estimated using changes in the number of mobile money agents within 1 km of households between 2008 and 2010. In this way, the study is not measuring the impact of the observed use of M-PESA by members of a household, but a proxy - the ability of households to access the cash-in cash-out services provided by agents in their immediate neighborhood. Further, because many changes were implemented in the 4 years between 2010 and 2014 including the passage of the national payments act which allowed banks to use existing agent networks and the integration of new services, such as M-Shwari, with M-PESA, the authors clarify the correct way to interpret their results: &lt;strong&gt;“Our estimates of the long-term causal impact of the initial deployment of agents thus include the effect of the subsequent competitive deepening.”&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The results of this study do not generalize to all of Kenya.&lt;/strong&gt; This study is based on five rounds of a household panel survey conducted in 2008, 2009, 2010, 2011 and 2014. Design decisions made when the initial sample was drawn, as well as attrition over time, limit the generalizability of the study. Given that the authors wanted to increase the chances of finding M-PESA users (which were rare at a time when M-PESA was only just starting out), they excluded the poorest locations in the north and north east of the country with inadequate cell-phone coverage, as well as locations across the country without at least one M-PESA agent. Also, given that a high fraction of households in Nairobi were lost to attrition, Nairobi was dropped from the study after 2011. Overall, the sample used in the study represents around 82% of the non-Nairobi, non-North population.  It is also worth noting that given the exclusion of locations without an agent in 2008 and the fact that the authors over-sampled locations with higher numbers of agents, the sample is skewed to more urban settings. Among the 3,000 households that participated in the 2008, first round survey, 64.5 percent lived in urban areas which is more than double the national urban population rate. Given attrition and the exclusion of Nairobi, the sub-sample used in this study is made up of the 1,593 households that had data from both the 2008-2010 rounds and the 2014 round.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The big finding in this report is that the impact of the mobile money system on poverty seems to be really big for female headed households.&lt;/strong&gt; The authors estimate that for each 1 agent difference in the 2008-10 growth in the number of agents within 1km between two groups of households, the difference in the 2014 average level of consumption per person in those households was 1.2 percent. If the household is headed by a woman, the difference in average consumption per person is more than double - 3.1 percent. To recap - because consumption in 2014 could not have caused agent density growth in 2008 and because agent density growth is not correlated with other observable factors that might have influenced changes in household economic welfare, the authors argue that this effect can be given a causal interpretation.&lt;/p&gt;
+&lt;p&gt;A more grounded way to state the findings can be constructed using some of the values in the data. Between 2008 and 2010, the number of agents within 1km of households increased by an average of 4.7.  Households earning near the poverty line (around Ksh 115 per person per day) who were exposed to the typical increase in agent density of 4.7, had consumption levels in 2014 that were KSh 6 higher per person per day (or an additional Ksh 183 per person per month) than households that were not exposed to any change in the agent density.  For female headed households, the difference was Ksh 18 per person per day (or Ksh 550 per person per month) almost three times the overall effect. The magnitude of this effect is very large: an extra Ksh 550 per person per month translates to close to Ksh 1,650 per month for a family of three and over the course of the year that adds up to an extra Ksh 19,800 or USD 220.&lt;/p&gt;
+&lt;p&gt;In a second regression, the authors assess the relationship between changes in per capita consumption between 2008 and 2014 and changes in agent density. Overall, the authors do not find that changes in agent density were related to changes in consumption, however, they find that for female headed households, a 1 agent increase in agent density between 2008 and 2010 is associated with a 1.4 percent change in household per capita consumption between 2008 and 2014. The negligible overall effect seems to be a result of there being a negative association between changes in agent density and consumption for male headed households, which mutes the positive effect for females. For a female head earning near the USD 1.25 poverty line in 2008 who was exposed to the typical change in agent density (of 4.7), the expected change in their consumption per capita as a result would have been on the order of 6.5 percent – or an increase of approximately Ksh 7 - from Ksh 115 to Ksh 122 per person per day.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;While the evidence of impacts is strong, the mechanisms that generate them are unclear. Prior research indicated mobile money was able to better insure households against shocks by providing better access to informal remittance networks. This latest study reinforces that finding and also hints that the longer term impact on female headed households might also be a result of enabling additional savings and transitions to higher-return occupations. However, the authors find no evidence that having access to more agents increased the likelihood of female headed households using M-PESA as a savings instrument.&lt;/strong&gt; What is not widely discussed in the paper is that female headed households are particularly vulnerable and marginalized in the Kenyan context. The 2016 FinAccess household survey estimates that out of all households in Kenya, 22 percent are headed by a female, and out of these, 78 percent are single parent households (due to being unmarried, separated, divorced or widowed). These households face immense pressure as one parent has to provide both income and caretaking duties for the family. The ratio of income earners to school-age children in female headed households is about 20 percent smaller than male headed households on average (Table 1). If there are any households that need social support through transfers, it would be these households and so the effects that are picked up in the study may have more to do with mobile money supporting a social insurance function, rather than a savings and investment function. The negative changes in consumption per capita for male headed households combined with the positive changes for female headed households perhaps may be evidence of redistribution from male headed households with higher purchasing power to female headed households. The authors suggest that &lt;strong&gt;“the primary impact on female-headed households was therefore to protect them from falls in consumption in the longer term or to boost it marginally, consistent with our earlier results on risk sharing”&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table 1: Demographic characteristics of female and male headed households&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Female headed households&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Male headed households&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Population share&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;78&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Single parent familes (%)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;78&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;24&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Household size&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3.8&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Number of income earners&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1.1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Number of children below that age of 16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1.9&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Percent in the poorest 40% of the population&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;44&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;39&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Percent with electricity in the home&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;48&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Lastly, the study finds that female headed households with greater exposure to the mobile money system were less likely to be working in farming or be stitching together incomes from multiple part-time jobs and more likely to be in business or sales.&lt;/strong&gt; In light of the previous discussion, for female headed households with significant care-taking responsibilities, being able to substitute more remittances for time-consuming farm work would make sense. If these remittances enable additional savings, as the evidence suggests, then, at least for some households heads, they could have been channeled to invest in buying stock or equipment to start a small business.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Several questions remain.&lt;/strong&gt; It is important to keep in mind that the results of the study are based on comparisons not between households with zero access and some access to the mobile money system, but between households with lesser and greater access. After all, most if not all households in the study had access to at least one agent within 1 km, which is quite close. So was there something about a higher density of agents that enabled the mobile money system to work better? For example, by ensuring that households could access their money when needed by having multiple agent options or did a higher density of agents help ensure that as a whole agents were managing their inventory of cash and e-float more effectively? Did having access to an increasing concentration of agents nearby, promote more usage of M-PESA? Or did denser networks agents help infuse local economies with additional resources that helped improve local economic conditions and purchasing power in the medium run? With mobile money becoming as ubiquitous as cellphones, it will be extremely difficult to untangle these questions going forward but overall the findings do support one overarching conclusion and that is that mobile money and the agent networks that support it have emerged as a cross-cutting institution that carries significant potential to alleviate the day-to-day challenges of poverty and to support poverty reduction over time.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Design That Can Be Understood by Almost Everyone: the Case of Ikea and Seed Insurance</title>
+      <link>/post/fsdk-design-cropinsurance/</link>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fsdk-design-cropinsurance/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;“…fintech innovations need to be more inclusive, easier to use, and designers should work harder to provide greater consumer protection and empowerment.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nathan Were, FINCA Canada from “Do Financial-Sector Innovations Improve the Lives of Poor People?”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“We must continue building on these platforms to help lift people out of poverty. But as we do this, it is important to realize that today’s products will not work for everyone.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Will Cook, CGAP from “Who are Kenya’s financially excluded”&lt;/p&gt;
+&lt;p&gt;Except for cash, most formal financial instruments are not really designed so that everyone who is eligible to, can use them. Take financial instruments provided by commercial banks such as savings or checking accounts, for example. After controlling for wealth, age, gender, livelihood and mobile phone ownership, adults in their prime working ages without formal education are about 80 percent less likely to actively use services from a bank than adults with tertiary education (Figure 1). Even mobile money – Kenya’s most widely used non-cash financial instrument, has usage differences associated with education that are especially pronounced among 18-25 year olds, which represent one out of every five adults in the population. An individual in the 18-25 age bracket with tertiary education is more than twice as likely to use mobile money than an individual in that same age bracket without any formal education, holding other factors constant, including mobile phone ownership. A recent analysis by CGAP found a similarly strong influence of education on usage of financial services: compared to someone with tertiary education, a Kenyan without formal education is 26 times more likely to be financially excluded.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./educationeffects_combined.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Its an open question as to whether these marginal differences in usage resulting from differences in education are due to product design that poses challenges for people with no or incomplete schooling, but its worth entertaining the following questions: How many potential customers are deterred or hesitant to use a product because they can’t understand or mis-understand it, and as a result fear it, or think its not for them? How many actual customers fall into traps or mis-use a product, because they don’t fully comprehend what they are getting into when they passively agree to the terms and conditions?&lt;/p&gt;
+&lt;p&gt;For digital versions of more complex financial services like insurance or credit that are accessed directly from the phone without the support of a salesperson, agent, technician or peer – the situation is likely to be even more challenging from an inclusion point of view. In these cases, where consumer risks are also greater, designing for usability may be just as critical as designing for comprehension. In other words, it is important not only that users know how to work the product (e.g. perform tasks such as signing up, reaching a call center or making a payment – with limited errors or confusion) but it is also important that they understand its behavior-contingent consequences (e.g. fees for account balances below a certain threshold, fees for account closing, extra charges if payment is not made by a certain date, reporting to a credit bureau if loan enters default, conditions for an insurance payout etc.).&lt;/p&gt;
+&lt;p&gt;Designing for comprehension as a path to scale and inclusion in Kenya, means that you must design for the person with little schooling, who may have limited literacy or numeracy, not to mention whose native fluency may be one of several non-Swahili regional languages. Evidence from nationally representative demand side surveys suggest these challenges are significant: in 2016, only 1 in 5 rural adults could fluently read and demonstrate understanding of the consent form for participation in the 2016 financial inclusion insights survey conducted by Intermedia, 1 in 2 rural adults could correctly divide Ksh 100,000 by 5 and 1 in 4 could correctly compute an interest payment of 10% on a loan of Ksh 10,000. Studies in other settings found that people in rural areas have difficulty transcoding oral representations of numbers to their written equivalent by being able to distinguish place values, or that a key challenge to adoption of mobile wallets by oral (illiterate or semi-literate populations) is the text heavy interface.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;One instruction manual that is understood everywhere: The case of IKEA&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you don’t know what IKEA is let me explain briefly: IKEA is a home furnishing business with 411 stores in 49 countries and annual global revenues upwards of USD 41 billion (Kenya’s GDP by comparison is USD 70.53 billion). IKEA’s vision is “to create a better everyday life for the many people” and “to offer a wide range of well-designed, functional home furnishing products at prices so low that as many people as possible will be able to afford them”.  While there are many interesting aspects of IKEA’s business model, the one I’d like to highlight here is the design of their instruction manual.&lt;/p&gt;
+&lt;p&gt;When you purchase furniture at IKEA, essentially you are purchasing the component pieces, say of a table, all packed together in a flat cardboard box that fits easily into a vehicle and which you assemble at home with simple tools. IKEA includes an instruction booklet with a step-by-step breakdown of how to assemble the furniture (Figure 2). The interesting thing about the instructions is that they are printed without words – no translations, no technical language – so that someone in Tokyo, Japan can build their table just as easily as someone in Lublin, Poland or Johor Bahru, Malaysia.&lt;/p&gt;
+&lt;p&gt;IKEA takes clarity so seriously that they hire instruction designers. In a Fast.co article, one of these designers describes one of the secrets to the process: “Test assembly provides an opportunity to find out if there is a risk that the customer might place a certain part in the wrong direction which may not look like an obvious mistake in the moment, but will cause a problem many steps later.” If clarity is one principle IKEA uses in instruction design, the second is to literally take the perspective of the customer, as the same article points out: “Designers take pains to render each successive picture from a single, unchanging point-of-view (mimicking that of the customer), so that confusing rotations or perspective changes are minimized and the customer can stay oriented more easily as he or she moves back and forth between the booklet and the parts”.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./IKEA-manual-3.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Communicating a product on a business card: The case of the replanting guarante&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Two key problems faced ACRE Africa’s Replanting Guarantee product (RPG): getting noticed and being understood. The RPG is a weather-index based insurance product targeted to smallholder farmers that reimburses the costs of maize seeds if there is inadequate rainfall during the crops’ germination phase. Despite widespread distribution of the insurance in “Duma 43” branded maize seeds from SeedCo (ACRE’s distribution partner) only a very small fraction of customers of Duma 43 registered for the cover by submitting a voucher code via SMS found on a small card inside the bag. ACRE found that farmers would often discard this card when the bag of seed was opened, or not identify the card as an insurance product but as a guarantee of seed quality. If farmers did look at the card, many thought the insurance cover would cost money (even though it was free) and if they tried to register, many entered the voucher code incorrectly. In other words, either the card wasn’t getting noticed or people weren’t fully understanding how the insurance cover worked and how to register for it.&lt;/p&gt;
+&lt;p&gt;One obvious margin on which to improve this situation was on the visual design and messaging elements of the original registration card (Figure 1). The design challenge here is significant: on a small card, ACRE must get the farmers attention (who may not necessarily be shopping for insurance), communicate why the cover is valuable, how it works, how to register and establish or signal that the product and provider are trustworthy.&lt;/p&gt;
+&lt;p&gt;Since it was hard to know in which direction to make changes, ACRE identified some hypotheses and ran an experiment in partnership with the Busara Center for Behavioral Economics and FSD Kenya. We developed an initial set of thirty new designs for the insurance registration card testing five high potential behavioral themes that might encourage registration: Social norms, calls to action, financial incentives, risk aversion, and simplicity. Seedco approved half of these designs covering three of these themes as well as variants in English and Swahili and a scratch card version for testing (Figure 3)[1]. We assigned the approved designs randomly to 252,000 bags of seed (out of a total of 640,000) at the factory and distributed them across the country for the 2015 short rain season (October to November). The registration rates of each of these designs was monitored and compared against ACRE Africa’s original design.&lt;/p&gt;
+&lt;p&gt;Among the 388,000 control cards, the registration rate was 4.2%. Among the 252,000 cards with new designs, the registration rate was 4.8%. The high potential designs that had average registration rates of 5.5% – a 30% increase over the control – included the scratch card feature, a simple visual comic demonstrating the registration process, and messaging emphasizing social norms and group identity. Despite the indisputable statistical effect of the improved card design, an adoption rate of only one in 20 Duma 43 bags was still far off Acre Africa’s goal which also drives home the point that clear design is not the whole story. Certainly affordability, trust and relevance in relation to people’s needs are other critical drivers of adoption.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./RPG_experiment.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Are there any general design lessons that can be extracted from these two cases? Three points come to mind:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Always take the customer’s perspective. At first, ACRE did not consider all the ways in which a small card, encountered at the time of planting, might come across in the mind of a smallholder farmer. Imagine the card falling out of the bag as you rip it open. What do you make of it? How will it get noticed? Will it be understood as a differentiated product? By adding a scratch feature to the card (which related the registration process to something most people know and do fairly regularly: purchasing and redeeming airtime scratch cards), ACRE was better able to signal that an action was required. By leveraging what people know and do, registration cards with a scratch feature were 36 percent more effective than the control card at encouraging registration. IKEA’s instruction booklets are designed sympathetically so that their customers’ point of view is literally built right in.&lt;/li&gt;
+&lt;li&gt;Convey information clearly and visually, where possible: In the RPG experiment, a simple comic strip that visually described the insurance registration process was very effective compared to competing designs. In the case of IKEA, furniture assembly is easy (at least most of the time) due to the clarity of the diagrams in the instructions coupled with the simplicity of the construction of the furniture. Adoption of smartphones will provide financial service providers with more opportunities to use visual messaging elements, hand gesture as well as voice, which combined, could potentially ease and improve the user experience.&lt;/li&gt;
+&lt;li&gt;Test: You have a hunch what might work well, but before going all in with a design for an interface, marketing material or product instructions, identify a few high potential competing ideas and test them in a systematic way with your target market. Testing opens you up to being surprised and changing your mind. ACRE was surprised by the outcome of its experiment and by testing their own work, IKEA’s designers are no doubt surprised by the myriad of unexpected ways their furniture assembly instructions are confusing, unclear or misleading – but testing allows them to tease out those pain points and incrementally improve their design.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;[1] Our initial designs in the theme of financial incentives, included small airtime incentives with registration and a lottery for a chance to win a larger value prize, but we were not able to test these ideas as we could not get a license to do this.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Additional resources:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here are some additional resources that provide more depth to the issues discussed in this blog:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsave and My Oral village offer useful recommendations and even a fully-fledged concept for designing for oral (literate or semi-literate) populations.&lt;/li&gt;
+&lt;li&gt;“Smartphone &amp;amp; Mobile Money: Principles for UI/UX Design” by CGAP lays out 21 principles for effective design of smartphone interfaces and mobile money.&lt;/li&gt;
+&lt;li&gt;“Consumer protection in digital credit” by CGAP offers a range of practical examples and suggestions based on experimentation to improve disclosure and consumer understanding of digital credit products.&lt;/li&gt;
+&lt;li&gt;“Introduction to rapid fire operational testing for social programs” by Innovations for Poverty Action (IPA) is a toolkit for organizations looking to improve how they learn through testing, especially in relation to the product innovation process.&lt;/li&gt;
+&lt;li&gt;Insights 2 Impact (i2i) has a searchable archive of behavioral science research articles that can help inform behavioral interventions in financial inclusion.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The End of Magic and the Beginning of Wisdom</title>
+      <link>/post/fsdk-endofmagic/</link>
+      <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/fsdk-endofmagic/</guid>
+      <description>&lt;p&gt;As a university economics student, I was obsessed with two topics: development and econometrics. The former, because the field enabled me to explore questions about the patterns of wealth and poverty that I saw in Chile and Mexico growing up and struggled to find answers to. The latter, because the fancy statistical models that were taught in econometrics courses seemed powerful: when combined with good data (a big if!) it felt as if those models could reveal the secrets of development and the knowledge to make the world better.&lt;/p&gt;
+&lt;p&gt;In the years after I graduated university, development economics underwent a methodological “revolution” that started with a loss in confidence in the ability of econometric models trained on large-scale observational data to tease out truth. The leaders of this revolution were inspired by the “long and wretched” history of medicine (Philip Tetlock succinctly describes this history in a chapter called “Illusions of Knowledge” in his book Superforecasting), where useless and often harmful interventions (like bloodletting) persisted over centuries and physicians debated their theories and practices “like blind men arguing over the colors of the rainbow” – as the historian Ira Rutkow observed. Medical decision-making was based mostly on intuition, informed at best by flawed observations and untroubled by doubt. Physicians were quick to make up their minds about interventions and too slow to change them. Not until the mid-20th century did the idea of randomized experiments, careful measurement and statistical power take hold in medicine.&lt;/p&gt;
+&lt;p&gt;While it may be harsh to compare the state of development economics in the early 21st century with the state of medicine in the 1st century, it was on the grounds of providing a path out of ignorance that RCTs have been adopted widely in the past 10 years as a favored way to establish evidence about “what works” in development. But can RCTs do for economics what they did for medicine? Are they any better than other tools in helping us learn about how societies achieve prosperity?&lt;/p&gt;
+&lt;p&gt;Angus Deaton – the world’s most recent Nobel Laureate in the economic sciences certainly does not think so. If poverty reduction is to development what curing disease is to medicine, Deaton is unequivocal in stating: “no long term solutions are coming from RCTs. We are certainly not going to abolish world poverty this way”. Timothy Ogden’s recent interview with the Nobel Laureate (which is a part of Ogden’s upcoming book: Experimental Conversations) reveals both Deaton’s qualified sense of doubt about the ability of RCTs to deliver useful insight and a sharp dislike of the way they are treated preferentially over other forms of evidence. Where others spend a lot of effort selling RCTs on the basis of their advantages, Deaton shows us the cracks in this seemingly perfect research tool. While Deaton’s critiques have been covered extensively elsewhere, for the benefit of those not familiar with the arguments, let me recap two of his key points:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The ability to apply lessons from RCTs obtained in one context to another is extremely limited. There are two reasons for this. The first is a consequence of the way RCTs are done in practice. Researchers start with a “policy” population of interest (e.g. a country, the poor, school-age children, teachers, villages) but select an experimental population that is not necessarily representative of the policy population (perhaps due to convenience or politics). There is no reason results derived from the experimental population will apply to the policy population. The second reason is more subtle, but perhaps more profound. Causal relationships measured from RCTs in the social sciences can be contextual rather than universal in nature. In a fascinating debate with Abhijit Banerjee, Deaton illustrates this with a simple metaphor: just because a TV may cause a house fire in one instance (due perhaps to faulty wiring), this does not mean that TV sets cause all house fires. These types of causal factors are contingent on context, that is, their role as causal agents requires the presence of other enabling factors. Deaton laments that too little thought goes into figuring out whether and how results from one experiment can apply elsewhere and without a better understanding of mechanisms we cannot develop a roadmap that will help us “transport” findings from one setting to another. As things stand, there is no direct line from RCT findings to policy.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Results from RCTs lack reliability. In many cases RCTs are done with relatively small sample sizes. This is problematic because smaller sample sizes increase the noise in estimates of average causal effects. For example, say you are measuring the impact of microcredit and you’ve randomly picked some entrepreneurs from a city to receive a loan and others to act as a control. Also assume that in that city there is a small group of entrepreneurs who will benefit immensely from the loan, another small group who will be harmed by the debt it creates and a large majority for whom the loan will have no impact at all. The chances that estimates of the effect of microcredit you get from this experiment will be spurious through the influence of members of the two small groups increases as the sample size falls. The trouble is that many RCTs are done with small sample sizes and the fact that there is randomization does not make the results more reliable.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The troubling aspect of both of these limitations is the possibility that even if multiple RCTs generate evidence on the same question, results across those studies may have no interpretation, and we may get stuck calling random noise a puzzle that needs to be solved. Deaton likens this scenario to trying to interpret an Avant-garde movie that has no plot.&lt;/p&gt;
+&lt;p&gt;Deaton’s observations make me think about whether the development community’s RCT fever is linked with deeper mental models of how we think and decide. Psychologists divide our minds into System 2 – the deliberate and effortful thinking we deploy when solving math problems for instance and System 1 – the automatic perceptual and cognitive operations we deploy when, for example, we run instinctually from the proverbial “lion in the grass”. Perhaps the general lack of criticism that RCTs receive (and Deaton complains about this “halo” effect in the interview), has to do with the internalization of a rule of thumb that “RCT = gold standard evidence” and “anything else = flawed evidence”. Deaton reminds us to engage System 2 thinking to interrogate and question the System 1 impulse that concludes that RCTs always generate higher quality evidence:&lt;/p&gt;
+&lt;p&gt;“… people use this gold standard argument, and say we’re only going to look at estimates that are randomized control trials, or at least prioritize them. We often find a randomized control trial with only a handful of observations in each arm and with enormous standard errors. But that’s preferred to a potentially biased study that uses 100 million observations. That just makes no sense. Each study has to be considered on its own. RCTs are fine, but they are just one of the techniques in the armory that one would use to try to discover things. Gold standard thinking is magical thinking.”&lt;/p&gt;
+&lt;p&gt;So if not from RCTs alone, where can we begin our search for knowledge about development? To my delight – having spent the last year supporting FSD Kenya’s work on financial diaries – Deaton goes on to say:&lt;/p&gt;
+&lt;p&gt;“Things like the financial diaries and extended case studies are enormously important. Most of the great ideas in the social sciences over the last 100 years came out of case studies like that. Because people are open to hearing things that they didn’t necessarily plan, for one thing… I very much like the financial diaries work and I’ve learned a lot from them, and to me they are more useful than a series of randomized trials on the topic because they have lots of broadly useful information. I can make my own allowance for how selected they are and I’m not blinkered by the craziness that if it’s not a randomized control trial I shouldn’t pay any attention to it. Which I’ve heard more times than I can count.”&lt;/p&gt;
+&lt;p&gt;To be honest, I’m not sure which great ideas in social science he is referring to, but I certainly would like to know. I do agree with Deaton that financial diaries studies are enormously useful but I’m not sure their usefulness can be compared to RCTs. The reason is that financial diaries are designed to answer a completely different class of questions than RCTs. While RCTs are designed to test specific hypotheses (for example, A is more effective than B at producing an outcome X), I view financial diaries and other case study research as hypothesis generators for topics we know relatively little about. The financial diaries methodology is like a microscope – it has given us a way to record how households manage money in incredible detail, it generates insights about the context and complexity which give rise to those patterns and these observations are helping us generate new– or challenge existing – theories of how households use financial instruments and allocate resources in settings of scarcity. As Richard Feynman alludes to when discussing the nature of scientific discovery, ultimately the value of financial diaries may be in their ability to cast doubt on existing ideas and generate new experiments, ideas or services that help the poor in their own pursuit of prosperity:&lt;/p&gt;
+&lt;p&gt;“The rate of the development of science is not the rate at which you make observations alone, but, much more important, the rate at which you create new things to test”&lt;/p&gt;
+&lt;p&gt;Having first fallen in love with the power of complex econometric models, then seduced by the simplicity of RCTs and finally awed by the richness of financial diaries – I agree with Deaton that it is important to avoid getting tempted into thinking that any single approach to learning about development will give us all the answers, especially if research proceeds without considering the role of mechanisms and context in producing outcomes. But I also don’t think RCTs are useless, and as someone who conducts and funds research, I’m glad randomization and control groups are part of the toolkit. One last thought that the interview left me with is that doubt and skepticism is where hard, careful thinking that propels knowledge forward begins:&lt;/p&gt;
+&lt;p&gt;“That’s the beginning of wisdom. It’s very hard to do science. If it was easy or there was a magic machine out there we’d all be a lot wiser. It’s just very very hard.” – Angus Deaton&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kenya Economic Update 8, Special Focus: Poverty</title>
+      <link>/publication/keu-8/</link>
+      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/keu-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Challenges and opportunities of mobile phone-based data collection: evidence from South Sudan</title>
+      <link>/publication/sseps/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/sseps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kenya Economic Update 7, Special Focus: Jobs</title>
+      <link>/publication/keu-7/</link>
+      <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/keu-7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Developing a comprehensive time series of GDP per capita for 210 countries from 1950 to 2015</title>
+      <link>/publication/gdp-estimates/</link>
+      <pubDate>Mon, 30 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/gdp-estimates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maternal and Child Health in Sudan.</title>
+      <link>/publication/maternal-childhealth-sudan/</link>
+      <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/maternal-childhealth-sudan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Progress and Challenges for Improving Child &amp; Maternal Health in a Post-conflict Setting: The Case of South Sudan.</title>
+      <link>/publication/maternal-childhealth-southsudan/</link>
+      <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/maternal-childhealth-southsudan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Public financing of health in developing countries: a cross-national systematic analysis</title>
+      <link>/publication/public-financing-of-health/</link>
+      <pubDate>Fri, 09 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/public-financing-of-health/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Financing of global health: tracking development assistance for health from 1990 to 2007</title>
+      <link>/publication/financing-global-health/</link>
+      <pubDate>Sat, 20 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/financing-global-health/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Evaluation Study of California&#39;s High Priority Schools Grant Program</title>
+      <link>/publication/hpsgp/</link>
+      <pubDate>Sat, 01 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/hpsgp/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
